@@ -1,0 +1,13 @@
+sh 08_samtools_index.sh S1-0Gy-1
+sh 08_samtools_index.sh S1-0Gy-2
+sh 08_samtools_index.sh S1-1Gy-1
+sh 08_samtools_index.sh S1-1Gy-2
+sh 08_samtools_index.sh S1-2Gy-1
+sh 08_samtools_index.sh S1-2Gy-2
+sh 08_samtools_index.sh S1-4Gy-1
+sh 08_samtools_index.sh S1-4Gy-2
+sh 08_samtools_index.sh S1-8Gy-1
+sh 08_samtools_index.sh N1spleen
+sh 08_samtools_index.sh N1S1
+sh 08_samtools_index.sh dirams_germline
+sh 08_samtools_index.sh dirams_8Gy

@@ -1,0 +1,2 @@
+sh 00_mm10_bamprocessing.sh /home/users/sypark/00_Project/17_jhy_files/1804KHX-0014/01_fastq/N1-spleen_R1.fastq.gz /home/users/sypark/00_Project/17_jhy_files/1804KHX-0014/01_fastq/N1-spleen_R1.fastq.gz N1-spleen /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+sh 00_mm10_bamprocessing.sh /home/users/sypark/00_Project/17_jhy_files/1804KHX-0014/01_fastq/N1-S1_R1.fastq.gz /home/users/sypark/00_Project/17_jhy_files/1804KHX-0014/01_fastq/N1-S1_R2.fastq.gz N1-S1 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa

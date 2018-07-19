@@ -1,0 +1,13 @@
+gzip N1-S1.mpileup 2>/dev/null
+gzip N1-spleen.mpileup 2>/dev/null
+gzip dirams_8Gy.mpileup 2>/dev/null
+gzip dirams_germline.mpileup 2>/dev/null
+gzip S1-0Gy-1.mpileup 2>/dev/null
+gzip S1-0Gy-2.mpileup 2>/dev/null
+gzip S1-1Gy-1.mpileup 2>/dev/null
+gzip S1-1Gy-2.mpileup 2>/dev/null
+gzip S1-2Gy-1.mpileup 2>/dev/null
+gzip S1-2Gy-2.mpileup 2>/dev/null
+gzip S1-4Gy-1.mpileup 2>/dev/null
+gzip S1-4Gy-2.mpileup 2>/dev/null
+gzip S1-8Gy-1.mpileup 2>/dev/null

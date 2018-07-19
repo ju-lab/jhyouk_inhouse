@@ -1,0 +1,3 @@
+sh 00_strelka.sh /home/users/jhyouk/05_radiation/00_fastq/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-4Gy-1.s.md.ir.br.bam S1-4Gy-1 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+sh 00_strelka.sh /home/users/jhyouk/05_radiation/00_fastq/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-2Gy-1.s.md.ir.br.bam S1-2Gy-1 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+#sh 00_strelka.sh /home/users/jhyouk/05_radiation/00_fastq/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-4Gy-2.s.md.ir.br.bam S1-4Gy-2 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa

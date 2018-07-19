@@ -1,0 +1,11 @@
+python 08_NA_filter.py S1-0Gy-1.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-0Gy-2.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-1Gy-1.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-1Gy-2.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-2Gy-1.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-2Gy-2.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-4Gy-1.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-4Gy-2.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py S1-8Gy-1.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py N1-S1.delly.somatic.vcf.BPinfo4
+python 08_NA_filter.py dirams_8Gy.delly.somatic.vcf.BPinfo4

@@ -1,0 +1,10 @@
+#sh 06_script_filter_MH_MP.sh S1-0Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-0Gy-1 N1spleen
+#sh 06_script_filter_MH_MP.sh S1-0Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-0Gy-2 N1spleen
+#sh 06_script_filter_MH_MP.sh S1-1Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-1Gy-1 N1spleen
+#sh 06_script_filter_MH_MP.sh S1-1Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-1Gy-2 N1spleen
+sh 06_script_filter_MH_MP.sh S1-2Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-2Gy-1 N1spleen
+sh 06_script_filter_MH_MP.sh S1-2Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-2Gy-2 N1spleen
+#sh 06_script_filter_MH_MP.sh S1-4Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-4Gy-1 N1spleen
+#sh 06_script_filter_MH_MP.sh S1-4Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam S1-4Gy-2 N1spleen
+sh 06_script_filter_MH_MP.sh N1-S1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam N1S1 N1spleen
+#sh 06_script_filter_MH_MP.sh dirams_8Gy /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_8Gy dirams_germline

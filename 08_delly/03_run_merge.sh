@@ -1,0 +1,11 @@
+#sh 02_merge_delly.sh S1-0Gy-1
+sh 02_merge_delly.sh S1-0Gy-2
+sh 02_merge_delly.sh S1-1Gy-1
+sh 02_merge_delly.sh S1-1Gy-2
+sh 02_merge_delly.sh S1-2Gy-1
+sh 02_merge_delly.sh S1-2Gy-2
+sh 02_merge_delly.sh S1-4Gy-1
+sh 02_merge_delly.sh S1-4Gy-2
+sh 02_merge_delly.sh S1-8Gy-1
+sh 02_merge_delly.sh N1-S1
+sh 02_merge_delly.sh dirams_8Gy

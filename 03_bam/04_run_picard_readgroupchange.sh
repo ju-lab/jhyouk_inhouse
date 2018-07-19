@@ -1,0 +1,12 @@
+sh 03_picard_readgroupchange.sh S1-0Gy-2
+sh 03_picard_readgroupchange.sh S1-1Gy-1
+sh 03_picard_readgroupchange.sh S1-1Gy-2
+sh 03_picard_readgroupchange.sh S1-2Gy-1
+sh 03_picard_readgroupchange.sh S1-2Gy-2
+sh 03_picard_readgroupchange.sh S1-4Gy-1
+sh 03_picard_readgroupchange.sh S1-4Gy-2
+sh 03_picard_readgroupchange.sh S1-8Gy-1
+sh 03_picard_readgroupchange.sh N1S1
+sh 03_picard_readgroupchange.sh N1spleen
+sh 03_picard_readgroupchange.sh dirams_germline
+sh 03_picard_readgroupchange.sh dirams_8Gy

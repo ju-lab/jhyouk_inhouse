@@ -1,0 +1,5 @@
+sh 00_strelka.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1S1.s.md.ir.br.bam N1-S1 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+sh 00_strelka.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-8Gy-1.s.md.ir.br.bam S1-8Gy-1 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+sh 00_strelka.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-1Gy-2.s.md.ir.br.bam S1-1Gy-2 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+#sh 00_strelka.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1spleen.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-2Gy-2.s.md.ir.br.bam S1-2Gy-2 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
+sh 00_strelka.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/dirams_germline.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/dirams_8Gy.s.md.ir.br.bam dirams_8Gy /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa

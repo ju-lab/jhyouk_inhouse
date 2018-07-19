@@ -1,0 +1,11 @@
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-0Gy-1.mpileup.gz S1-0Gy-1
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-0Gy-2.mpileup.gz S1-0Gy-2
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-1Gy-1.mpileup.gz S1-1Gy-1
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-1Gy-2.mpileup.gz S1-1Gy-2
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-2Gy-1.mpileup.gz S1-2Gy-1
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-2Gy-2.mpileup.gz S1-2Gy-2
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-4Gy-1.mpileup.gz S1-4Gy-1
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-4Gy-2.mpileup.gz S1-4Gy-2
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/S1-8Gy-1.mpileup.gz S1-8Gy-1
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-spleen.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/N1-S1.mpileup.gz N1-S1
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/dirams_germline.mpileup.gz /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup/dirams_8Gy.mpileup.gz dirams_8Gy

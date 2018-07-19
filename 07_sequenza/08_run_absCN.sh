@@ -1,0 +1,13 @@
+sh 07_absCN_byJu.sh N1-spleen
+sh 07_absCN_byJu.sh N1-S1
+sh 07_absCN_byJu.sh dirams_germline
+sh 07_absCN_byJu.sh dirams_8Gy
+sh 07_absCN_byJu.sh S1-0Gy-1
+sh 07_absCN_byJu.sh S1-0Gy-2
+sh 07_absCN_byJu.sh S1-1Gy-1
+sh 07_absCN_byJu.sh S1-1Gy-2
+sh 07_absCN_byJu.sh S1-2Gy-1
+sh 07_absCN_byJu.sh S1-2Gy-2
+sh 07_absCN_byJu.sh S1-4Gy-1
+sh 07_absCN_byJu.sh S1-4Gy-2
+sh 07_absCN_byJu.sh S1-8Gy-1

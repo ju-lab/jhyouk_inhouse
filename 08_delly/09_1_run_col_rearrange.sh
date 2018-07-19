@@ -1,0 +1,11 @@
+python 09_column_rearrange.py S1-0Gy-1.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-0Gy-2.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-1Gy-1.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-1Gy-2.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-2Gy-1.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-2Gy-2.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-4Gy-1.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-4Gy-2.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py S1-8Gy-1.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py N1-S1.delly.somatic.vcf.BPinfo4.filter1
+python 09_column_rearrange.py dirams_8Gy.delly.somatic.vcf.BPinfo4.filter1
