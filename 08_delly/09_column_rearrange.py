@@ -1,7 +1,7 @@
 import sys
 input_fn = sys.argv[1]
-input_file = file(input_fn)
-output_fn = input_fn + '.rearrange'
+input_file = file(input_fn+'.delly.somatic.vcf.BPinfo4.filter1')
+output_fn = input_fn + '.delly.somatic.vcf.BPinfo4.filter1.rearrange'
 output_file = file (output_fn,'w')
 
 input_line = input_file.readline()

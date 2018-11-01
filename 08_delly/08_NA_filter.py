@@ -1,11 +1,14 @@
 #2018.07.18 DV+RV>=5 with somatic 'NA' => classify it as 'T2'
 import sys
 input_fn = sys.argv[1]
-input_file = file(input_fn)
-output_fn = input_fn + '.filter1'
+input_file = file(input_fn + '.delly.somatic.vcf.BPinfo4')
+output_fn = input_fn + '.delly.somatic.vcf.BPinfo4.filter1'
 output_file = file (output_fn,'w')
 
 input_line = input_file.readline()
+while input_line[0:2]=='##':
+    input_line = input_file.readline()
+
 output_file.write('#CHROM'+'\t'+'POS'+'\t'+'Decision'+'\t'+'DV,RV,()'+'\t'+ input_line[1:])
 input_line=input_file.readline()
 

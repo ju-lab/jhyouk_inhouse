@@ -1,19 +1,15 @@
-
-# In[26]:
-
-
 import sys, pysam
 input_fn = sys.argv[1]
-#input_fn = "S1-0Gy-1.combination.Mutect_Strelka_union.vcf.readinfo.filtered.vcf"
-output_fn = input_fn + "N1S1_read>=2.vcf"
+#input_fn = "S1-0Gy-1.combination.Mutect_Strelka_union.vcf.readinfo.filtered"
+output_fn = input_fn + "N1S1_read_removal.vcf"
 input_file = file(input_fn)
 output_file = file(output_fn,'w')
-output1_file = file((output_fn+'N1S1_excluded.vcf'),'w')
+#output1_file = file((output_fn+'N1S1_excluded.vcf'),'w')
 bam_file = pysam.AlignmentFile('/home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1-S1.s.md.ir.br.rg.bam','rb')
 
 input_line = input_file.readline().strip()
 output_file.write(input_line + '\t'+ 'N1S1_var_read_N' +'\n')
-output1_file.write(input_line+ '\t'+ 'N1S1_var_read_N' +'\n')
+#output1_file.write(input_line+ '\t'+ 'N1S1_var_read_N' +'\n')
 input_line = input_file.readline().strip()
 
 while input_line:
@@ -33,10 +29,7 @@ while input_line:
                 else:
                     'blank'
     
-    if tf>=2:
-        output1_file.write(input_line+'\t'+str(tf) +'\n')
-    else:
+    if tf<2:
         output_file.write(input_line+'\t'+str(tf)+'\n')
     
     input_line = input_file.readline().strip()
-

@@ -1,14 +1,9 @@
 
 # coding: utf-8
 
-# In[10]:
+# In[1]:
 
 
-# 180827 indel_filter script written by J.Youk
-# version 1.0 was completed at 4th Sep. 2018
-
-# args order = input_file, t_bam, n_bam
-# if you find error, please send an e-mail to jhyouk@gmail.com
 import sys, os, pysam
 def cigar_fc(cigar_list, repeat_abs_pos, repeat_rel_pos, repeat_remain_distance,repeat_final):
     for cigar in cigar_list:
@@ -590,23 +585,26 @@ def indel_bam(input_line, bam_file, ref_fasta):
     #print nvar,nref,nother
     return [nvar,nref,nother,var_seq,temp_seq2,initial_ru,call_ru,ref_rc]
     
+
+    
 input_fn = sys.argv[1]    
 input_file = file(input_fn)
-output_file = file(input_fn.replace('.vcf','_indel.vcf'),'w')
-#input_file = file('S1-4Gy-1.strelka_varscan_union.vcf')
-#output_file = file('S1-4Gy-1.strelka_varscan_union_trial.vcf','w')
+output_file = file(input_fn.replace('.vcf','_removeN1S1.vcf'),'w')
+#input_file = file("S1-0Gy-1.strelka_varscan_union_indel_clonal.vcf")
+#output_file = file("S1-0Gy-1.strelka_varscan_union_indel_clonal_removeN1S1.vcf",'w')
+
 
 t_bam_fn = sys.argv[2]
 n_bam_fn = sys.argv[3]
 t_bam = pysam.AlignmentFile(t_bam_fn,'rb')
 n_bam = pysam.AlignmentFile(n_bam_fn,'rb')
-#t_bam = pysam.AlignmentFile('/home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-4Gy-1.s.md.ir.br.rg.bam','rb')
-#n_bam = pysam.AlignmentFile('/home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1spleen.s.md.ir.br.rg.bam','rb')
+#t_bam = pysam.AlignmentFile('/home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/S1-0Gy-1.s.md.ir.br.rg.bam','rb')
+#n_bam = pysam.AlignmentFile('/home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/N1-S1.s.md.ir.br.rg.bam','rb')
 ref_fasta = pysam.FastaFile("/home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa")
 
 input_line = input_file.readline().strip()
 while input_line[0:1] == '#':
-    output_file.write(input_line + '\t' + 't_var;t_ref;t_other;t_dup;n_var;n_ref;n_other;n_dup;Vaf;indel;repeat_unit;reference_repeat_count' + '\n')
+    output_file.write(input_line + '\t' + 'N1S1_version' + '\n')
     input_line = input_file.readline().strip()
 #input_line = '17\t19189972\t.\tT\tTAG'
 #input_line = '3\t81870660\t.\tT\tTTTC'
@@ -645,8 +643,9 @@ while input_line:
                     tdup+=1
                     break
         info = str(var_list[0]+tdup) + ';' + str(var_list[1]-tdup) + ';' + str(var_list[2]) +';'+ str(tdup)+';'+ str(ref_list[0]+ndup) +';'+ str(ref_list[1]-ndup)                 +';'+ str(ref_list[2]) +';'+ str(ndup)+';'+str(round(float(var_list[0]+tdup)/float(var_list[0]+var_list[1]),2))+';'+str(var_list[5])+';'+str(var_list[6])+';'+str(var_list[7])                   
-        #print info
-        output_file.write(input_line +'\t' + info + '\n')
+        
+        if (ref_list[0]+ndup) < 2:
+            output_file.write(input_line +'\t' + info + '\n')
         
     else:
         print 'call SNP'
@@ -655,6 +654,4 @@ while input_line:
     
     
 print 'The End'
-#close(t_bam)
-#close(ref_fasta)
 
