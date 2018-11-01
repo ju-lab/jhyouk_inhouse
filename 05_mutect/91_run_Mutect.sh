@@ -1,0 +1,11 @@
+sh 00_Mutect.sh N1S1 N1spleen N1-S1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-0Gy-1 N1spleen S1-0Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-0Gy-2 N1spleen S1-0Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-1Gy-1 N1spleen S1-1Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-1Gy-2 N1spleen S1-1Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-2Gy-1 N1spleen S1-2Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-2Gy-2 N1spleen S1-2Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-4Gy-1 N1spleen S1-4Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-4Gy-2 N1spleen S1-4Gy-2 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh S1-8Gy-1 N1spleen S1-8Gy-1 /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam
+sh 00_Mutect.sh dirams_8Gy dirams_germline dirams_8Gy /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam

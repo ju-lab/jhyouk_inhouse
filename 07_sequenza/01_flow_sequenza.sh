@@ -1,14 +1,13 @@
 #!/bin/bash
 set -e
 
-normalPileup=$1
-tumorPileup=$2
-sampleName=$3
+mpileup_pwd=$1
+sampleName=$2
+normalPileup=$3
 
-if false; then
 #create seqz file from the two mpileups
 echo bam2seqz
-sequenza-utils bam2seqz -gc /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/gc50base.mm10.wig.gz -n $normalPileup -t $tumorPileup -p -o $sampleName.seqz > $sampleName.bam2seqz.out 2>&1
+sequenza-utils bam2seqz -gc /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/gc50base.mm10.wig.gz -n $1/$normalPileup.mpileup -t $1/$sampleName.mpileup -p -o $sampleName.seqz > $sampleName.bam2seqz.out 2>&1
 
 #binning
 echo binning
@@ -25,8 +24,8 @@ gzip $sampleName.comp.seqz.rmGLMTJH > $sampleName.gzip.out 2>&1
 echo done 
 
 #cleanup
-#rm $normalBam.mpileup.gz $tumorBam.mpileup.gz $sampleName.seqz $sampleName.comp.seqz 
-fi
+rm $sampleName.seqz $sampleName.comp.seqz 
 
 # further analysis
-Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/03_Rscript_sequenza.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName > $sampleName.Rscript.out 2>&1
+#Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/03_Rscript_sequenza.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName &> $sampleName.Rscript.out
+Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/11_Rscript_sequenzawithpurity.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName-withpurity 1 2 &> $sampleName.purity.Rscript.out

@@ -1,0 +1,9 @@
+python 05_nonrepeat.py S1-0Gy-1.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-0Gy-2.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-1Gy-1.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-1Gy-2.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-2Gy-1.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-2Gy-2.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-4Gy-1.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-4Gy-2.strelka_varscan_union_indel_clonal_removeN1S1.vcf
+python 05_nonrepeat.py S1-8Gy-1.strelka_varscan_union_indel_clonal_removeN1S1.vcf

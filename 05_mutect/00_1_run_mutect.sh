@@ -1,0 +1,9 @@
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam breast_mother breast_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_20Gy_S1 dirams_20Gy_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_20Gy_S2 dirams_20Gy_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_8by1Gy_S1 dirams_8by1Gy_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_8by1Gy_S2 dirams_8by1Gy_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_8by4Gy_S1 dirams_8by4Gy_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_8by4Gy_S2 dirams_8by4Gy_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_lowdose_S1 dirams_lowdose_germline
+sh 00_Mutect.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam dirams_lowdose_S2 dirams_lowdose_germline

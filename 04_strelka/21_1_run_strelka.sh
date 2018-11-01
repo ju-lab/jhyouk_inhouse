@@ -1,0 +1,1 @@
+sh 00_strelka.sh /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/dirams_Panc_C3_germline.s.md.ir.br.bam /home/users/jhyouk/06_mm10_SNUH_radiation/03_bam/dirams_Panc_C3_S01.s.md.ir.br.bam dirams_Panc_C3_S01 /home/users/jhyouk/99_reference/mouse/mm10/GRCm38.fa
