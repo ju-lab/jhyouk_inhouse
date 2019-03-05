@@ -1,0 +1,16 @@
+sh 00_script_mpileup.sh Panc_20Gy1_SO2
+sh 00_script_mpileup.sh Liver_20Gy1_SO1
+sh 00_script_mpileup.sh Liver_20Gy1_SO2
+sh 00_script_mpileup.sh Liver_20Gy1_SO4
+sh 00_script_mpileup.sh Panc_8Gy1_SO1
+sh 00_script_mpileup.sh Panc_8Gy1_SO3
+sh 00_script_mpileup.sh Liver_8Gy1_SO3
+sh 00_script_mpileup.sh Liver_8Gy1_SO5
+sh 00_script_mpileup.sh Panc_2Gy2_SO2
+sh 00_script_mpileup.sh Liver_2Gy2_SO1
+sh 00_script_mpileup.sh Liver_2Gy2_SO2
+sh 00_script_mpileup.sh Liver_2Gy2_SO4
+sh 00_script_mpileup.sh C3SO3
+sh 00_script_mpileup.sh Liver_C3SO1
+sh 00_script_mpileup.sh Liver_C3SO2
+sh 00_script_mpileup.sh Panc_8Gy1_BO

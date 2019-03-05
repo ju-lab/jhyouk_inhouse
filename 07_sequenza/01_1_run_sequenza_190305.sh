@@ -1,0 +1,9 @@
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup 20Gy_1_S01_S Liver_20Gy_1_G
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup 20Gy_1_S03_S Liver_20Gy_1_G
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup 8Gy_2_S01_S Panc_8Gy_2_G
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup 8Gy_2_S02_S Panc_8Gy_2_G
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup 2Gy_2_S03_S Liver_2Gy_2_G
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup 2Gy_2_S04_S Liver_2Gy_2_G
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup L3_S01_Single L3_Germline
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup L3_S02_Single L3_Germline
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup C3SO3 L3_Germline

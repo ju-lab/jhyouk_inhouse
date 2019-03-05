@@ -1,0 +1,2 @@
+sh 00_script_mpileup.sh test_190218_somatic
+sh 00_script_mpileup.sh test_190218

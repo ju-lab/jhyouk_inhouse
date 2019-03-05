@@ -1,9 +1,4 @@
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup breast_mother breast_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_20Gy_S1 dirams_20Gy_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_20Gy_S2 dirams_20Gy_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_8by1Gy_S1 dirams_8by1Gy_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_8by1Gy_S2 dirams_8by1Gy_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_8by4Gy_S1 dirams_8by4Gy_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_8by4Gy_S2 dirams_8by4Gy_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_lowdose_S1 dirams_lowdose_germline
-sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_lowdose_S2 dirams_lowdose_germline
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup breast_mother Spleen_m3
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup B8 Spleen_m3
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup B3-0_0Gy_2 Spleen_m3
+sh 01_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup B3P16_0Gy_4 Spleen_m3

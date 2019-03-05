@@ -1,0 +1,5 @@
+python 31_Clonality_Mother_read_removal.py S1P13_2-3
+python 31_Clonality_Mother_read_removal.py S1P13_0-4
+python 31_Clonality_Mother_read_removal.py S1P13_0-5
+python 31_Clonality_Mother_read_removal.py S1P12_0-7
+python 31_Clonality_Mother_read_removal.py S1P12_0-3

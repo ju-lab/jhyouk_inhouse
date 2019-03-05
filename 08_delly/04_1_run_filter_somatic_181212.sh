@@ -1,0 +1,9 @@
+python 04_filter_somatic.py 20Gy_1_S01_S.delly.vcf
+python 04_filter_somatic.py 20Gy_1_S03_S.delly.vcf
+python 04_filter_somatic.py 8Gy_2_S01_S.delly.vcf
+python 04_filter_somatic.py 8Gy_2_S02_S.delly.vcf
+python 04_filter_somatic.py 2Gy_2_S03_S.delly.vcf
+python 04_filter_somatic.py 2Gy_2_S04_S.delly.vcf
+python 04_filter_somatic.py L3_S01_Single.delly.vcf
+python 04_filter_somatic.py L3_S02_Single.delly.vcf
+#python 04_filter_somatic.py Panc_C3_SO1.delly.vcf

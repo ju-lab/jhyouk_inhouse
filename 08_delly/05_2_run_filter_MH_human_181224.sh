@@ -1,0 +1,2 @@
+sh 05_1_script_filter_MH_MP.sh /home/users/team_projects/Radiation_signature/04_bam_human_sample HBIR1-1 HBIR1_germline
+sh 05_1_script_filter_MH_MP.sh /home/users/team_projects/Radiation_signature/04_bam_human_sample HBIR1-2 HBIR1_germline

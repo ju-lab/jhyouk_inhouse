@@ -1,0 +1,2 @@
+sh 00_human_strelka.sh /home/users/team_projects/Radiation_signature/04_bam_human_sample/HBIR1_germline.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/04_bam_human_sample/HBIR1-1.s.md.ir.br.bam HBIR1-1 /home/users/jhyouk/99_reference/human/hg38/Homo_sapiens_assembly38.fasta
+sh 00_human_strelka.sh /home/users/team_projects/Radiation_signature/04_bam_human_sample/HBIR1_germline.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/04_bam_human_sample/HBIR1-2.s.md.ir.br.bam HBIR1-2 /home/users/jhyouk/99_reference/human/hg38/Homo_sapiens_assembly38.fasta

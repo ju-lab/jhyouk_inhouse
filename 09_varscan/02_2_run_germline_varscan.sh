@@ -1,0 +1,1 @@
+sh 02_germline_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup dirams_lowdose_germline

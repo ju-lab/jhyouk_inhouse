@@ -1,0 +1,9 @@
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/Liver_20Gy_1_G.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/20Gy_1_S01_S.s.md.ir.br.bam 20Gy_1_S01_S
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/Liver_20Gy_1_G.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/20Gy_1_S03_S.s.md.ir.br.bam 20Gy_1_S03_S
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/Panc_8Gy_2_G.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/8Gy_2_S01_S.s.md.ir.br.bam 8Gy_2_S01_S
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/Panc_8Gy_2_G.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/8Gy_2_S02_S.s.md.ir.br.bam 8Gy_2_S02_S
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/Liver_2Gy_2_G.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/2Gy_2_S03_S.s.md.ir.br.bam 2Gy_2_S03_S
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/Liver_2Gy_2_G.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/2Gy_2_S04_S.s.md.ir.br.bam 2Gy_2_S04_S
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/L3_Germline.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/L3_S01_Single.s.md.ir.br.bam L3_S01_Single
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/L3_Germline.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/L3_S02_Single.s.md.ir.br.bam L3_S02_Single
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/L3_Germline.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/C3SO3.s.md.ir.br.bam C3SO3

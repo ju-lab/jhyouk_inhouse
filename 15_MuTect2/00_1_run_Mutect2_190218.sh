@@ -1,0 +1,1 @@
+sh 00_script_Mutect2.sh test_190218_somatic test_190218
