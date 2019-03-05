@@ -15,7 +15,7 @@ if ".gz" in fn[-3:]:
 	inputfile= gzip.open(fn, 'rb')
 else:
 	inputfile= file(fn)
-infofn = "/home/users/jhyouk/00_Script/GRCm38.fa.100kb"
+infofn = "/home/users/jhyouk/00_Script/GRCh38.fa.100kb"
 #infofn= "/home/users/jklee/Projects/00_Scripts/02_Smoothened_CNA/coverage_database/r01_human_g1k_v37.fasta.100kb"
 infofile=file(infofn)
 infoline=infofile.readline()#header
