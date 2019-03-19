@@ -1,0 +1,11 @@
+gzip -d N1-S1.mpileup.gz
+gzip -d N1-spleen.mpileup.gz
+gzip -d S1-0Gy-1.mpileup.gz
+gzip -d S1-0Gy-2.mpileup.gz
+gzip -d S1-1Gy-1.mpileup.gz
+gzip -d S1-1Gy-2.mpileup.gz
+gzip -d S1-2Gy-1.mpileup.gz
+gzip -d S1-2Gy-2.mpileup.gz
+gzip -d S1-4Gy-1.mpileup.gz
+gzip -d S1-4Gy-2.mpileup.gz
+gzip -d S1-8Gy-1.mpileup.gz

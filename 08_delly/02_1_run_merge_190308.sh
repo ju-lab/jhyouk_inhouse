@@ -1,0 +1,9 @@
+sh 02_merge_delly.sh 20Gy_1_S01_S
+sh 02_merge_delly.sh 20Gy_1_S03_S
+sh 02_merge_delly.sh 8Gy_2_S01_S
+sh 02_merge_delly.sh 8Gy_2_S02_S
+sh 02_merge_delly.sh 2Gy_2_S03_S
+sh 02_merge_delly.sh 2Gy_2_S04_S
+sh 02_merge_delly.sh L3_S01_Single
+sh 02_merge_delly.sh L3_S02_Single
+sh 02_merge_delly.sh C3SO3

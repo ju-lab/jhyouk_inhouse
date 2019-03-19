@@ -1,0 +1,1 @@
+python sypark_PointMt_annot_filter/src/readcount_only_anno_190314_clipinsdeladd_Y.py S1-2Gy-1_indel_union_2.readinfo.readc.rasmy.vcf.pon.readinfo /home/users/team_projects/Radiation_signature/02_bam/N1spleen.s.md.ir.br.bam pairN &>temp.out

@@ -1,0 +1,14 @@
+gzip -d Panc_20Gy1_SO2.mpileup.gz
+gzip -d Liver_20Gy1_SO1.mpileup.gz
+gzip -d Liver_20Gy1_SO2.mpileup.gz
+gzip -d Liver_20Gy1_SO4.mpileup.gz
+gzip -d Panc_8Gy1_SO1.mpileup.gz
+gzip -d Panc_8Gy1_SO3.mpileup.gz
+gzip -d Liver_8Gy1_SO3.mpileup.gz
+gzip -d Panc_2Gy2_SO2.mpileup.gz
+gzip -d Liver_2Gy2_SO4.mpileup.gz
+gzip -d Liver_C3SO2.mpileup.gz
+gzip -d Liver_8Gy1_SO5.mpileup.gz
+gzip -d Liver_2Gy2_SO1.mpileup.gz
+gzip -d Liver_2Gy2_SO2.mpileup.gz
+gzip -d Liver_C3SO1.mpileup.gz
