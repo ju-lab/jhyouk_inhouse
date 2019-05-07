@@ -9,7 +9,7 @@ output_07 = file("07_sequenza/01_1_run_sequenza_" + input_date + "_human_b37.sh"
 output_08 = file("08_delly/01_run_Delly_" + input_date + "_human_b37.sh",'w')
 output_09 = file("09_varscan/00_1_run_varscan_" + input_date + "_human_b37.sh",'w')
 output_14 = file("14_Strelka2/00_1_run_strelka2_" + input_date + "_human_b37.sh",'w')
-output_15 = file("15_MuTect2/00_1_run_Mutect2_"+ input_date + "_human_b37.sh",'w')
+#output_15 = file("15_MuTect2/00_1_run_Mutect2_"+ input_date + "_human_b37.sh",'w')
 
 input_line = input_file.readline().strip()
 while input_line:
@@ -23,7 +23,7 @@ while input_line:
     output_08.write("sh 00_human_b37_Delly.sh /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37 " + input_somatic + " " + input_germline + '\n')
     output_09.write("sh 00_human_b37_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup "+ input_somatic + " " + input_germline + '\n')
     output_14.write("sh 00_human_b37_script.sh /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37/"+ input_germline_bam + " /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37/" + input_somatic_bam + " " + input_somatic + '\n')
-    output_15.write("sh 00_human_b37_script_Mutect2.sh " + input_somatic + " " + input_germline + '\n')
+    #output_15.write("sh 00_human_b37_script_Mutect2.sh " + input_somatic + " " + input_germline + '\n')
     
     input_line = input_file.readline().strip()
 

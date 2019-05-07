@@ -1,6 +1,6 @@
 library(tidyverse)
 getwd()
-setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_SNP_New/")
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_2_SNP_updated_190315/")
 
 par(mfrow=c(1,1))
 file_list <- read.table("00_9_pancreas43.sh")
@@ -101,8 +101,26 @@ for (i in file_list[,1][2:21]){
   
 }
 dev.off()
-####
 
+#invivo
+par(mfrow=c(1,2))
+file_list <- read.table("00_9_invivo_1st.sh",header = F)
+file_list[1:3,1:3]
+pdf(file = "SNV_plot_invivo_1st_190321.pdf")
+for (i in file_list[,1][1:nrow(file_list)]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.coverage.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_clonal <- input_true_all %>% subset(.$V36 >=0.6)
+  input_true_all <- input_true_all %>% {.$V36[.$V36>3]<-3;.}
+  
+  hist(input_true_all[,37],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_all (clonal mutation=',nrow(input_true_all),')',sep = ''),xlim=c(0,2), xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_all[,37]))
+  abline(v=1.0,col='red');abline(v=0.6,col='blue')
+  hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_all[,34]))
+  abline(v=0.5,col='red');abline(v=0.3,col='blue')
+}
+dev.off()
 
 
 
@@ -216,3 +234,33 @@ input_true <- input_file %>% subset(input_file$V37 =='TRUE')
 plot(0,0,xlim = c(0,5),ylim = c(0,5),col='white')
 points(input_true$V40,input_true$V41)
 points(input_true[(input_true$V44 == 'subclonal_to_subclonal' | input_true$V44 == 'none_to_subclonal'),]$V40,input_true[(input_true$V44 == 'subclonal_to_subclonal'|input_true$V44 == 'none_to_subclonal'),]$V41,col='red')
+
+########non-repetitive snps#############
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_2_SNP_updated_190315/")
+file_list <- read.table("00_9_pancreas43.sh")
+snp_nonrepeat <- as.data.frame(matrix(c('dose','snp'),nrow=1))
+colnames(snp_nonrepeat)<-c('dose','snp')
+for (i in 2:43){
+  input_file <- tryCatch(read.table(paste(file_list[,1][i],"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.nonrepeat.vcf", sep=''),header=F),error=function(e) as.data.frame(matrix(c('no','line'),nrow=1)))
+  if (input_file[1,1] =='no') { print('pass')
+  }else  {
+    snp_nonrepeat <- rbind(snp_nonrepeat,list(file_list[i,2],nrow(input_file)))
+    rownames(snp_nonrepeat)[i] <- file_list[i,1]
+  }
+}
+snp_nonrepeat <- snp_nonrepeat [-1,]
+snp_nonrepeat
+
+file_list <- read.table("00_9_breast21.sh")
+for (i in 2:21){
+  input_file <- tryCatch(read.table(paste(file_list[,1][i],"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.nonrepeat.vcf", sep=''),header=F),error=function(e) as.data.frame(matrix(c('no','line'),nrow=1)))
+  if (input_file[1,1] =='no') { print('pass')
+  }else  {
+    snp_nonrepeat <- rbind(snp_nonrepeat,list(file_list[i,2],nrow(input_file)))
+    rownames(snp_nonrepeat)[i] <- file_list[i,1]
+  }
+}
+par(mfrow=c(1,3))
+plot(snp_nonrepeat$dose[1:14],snp_nonrepeat$snp[1:14],ylim=c(0,1100),col='white',main='none_to_clonal_invitro nonrepetitive snps',xlab='Radiation dose', ylab='The number of SNPs')
+points(snp_nonrepeat$dose[15:42],snp_nonrepeat$snp[15:42],col='blue')
+points(snp_nonrepeat$dose[43:62],snp_nonrepeat$snp[43:62],col='black')

@@ -13,18 +13,18 @@ outDir=$(dirname $vcf)
 log=$outDir/$vcf.SVprocessing.log
 
 # START
-echo $vcf > $log
+echo $1 $3 $4 $5 > $log
 echo "Starting:filter somatic"
 (python $srcDir/01.filter_somatic_delly.py $vcf $tumor_col) &>> $log || { c=$?;echo "Error";exit $c; }
 echo "done"
 echo "Starting:sorting"
 (python $srcDir/02.sorting_delly.py $vcf.somatic) &>> $log || { c=$?;echo "Error";exit $c; }
-rm $vcf.somatic
+#rm $vcf.somatic
 echo "done"
 echo "Starting:annotate PON"
 #(python $srcDir/03.annotate_PON.py $vcf.somatic.sort $pon $srcDir/hg19_ref.fa.fai) &>> $log || { c=$?;echo "Error";exit $c; }
 (python $srcDir/03.annotate_PON.py $vcf.somatic.sort $pon $srcDir/GRCm38.fa.fai) &>> $log || { c=$?;echo "Error";exit $c; }
-rm $vcf.somatic.sort
+#rm $vcf.somatic.sort
 echo "done"
 echo "Starting:find BP"
 (python $srcDir/04.find_BP.py $vcf.somatic.sort.pon $tumorBam $normalBam) &>> $log || { c=$?;echo "Error";exit $c; }

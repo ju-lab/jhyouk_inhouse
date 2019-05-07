@@ -1,5 +1,3 @@
-sh 000_1_script_run_invitro.sh B3S100 B3S100 Spleen_m3
-sh 000_1_script_run_invitro.sh N1-S1 N1-S1 N1spleen
 sh 000_1_script_run_invitro.sh S1-4Gy-2 N1-S1 N1spleen
 sh 000_1_script_run_invitro.sh S1-8Gy-1 N1-S1 N1spleen
 sh 000_1_script_run_invitro.sh S1-1Gy-2 N1-S1 N1spleen

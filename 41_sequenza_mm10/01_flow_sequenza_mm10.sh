@@ -33,5 +33,5 @@ rm $sampleName.seqz $sampleName.comp.seqz
 fi
 
 # further analysis
-#Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/03_Rscript_sequenza.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName &> $sampleName.Rscript.out
-Rscript 11_Rscript_sequenza_6args.R ../07_sequenza/$sampleName.comp.seqz.rmGLMTJH.gz $sampleName-mm10 $4 $5 $6 $7 &> $sampleName.Rscript.out
+#Rscript 11_Rscript_sequenza_6args.R ../07_sequenza/$sampleName.comp.seqz.rmGLMTJH.gz $sampleName-mm10 $4 $5 $6 $7 &> $sampleName.Rscript.out
+Rscript 12_Rscript_sequenza_mm10_nopurityassign.R ../07_sequenza/$sampleName.comp.seqz.rmGLMTJH.gz $sampleName-mm10-nopurity $4 $5 $6 $7 &> $sampleName.mm10.nopurityassign.Rscript.out
