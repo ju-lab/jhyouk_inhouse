@@ -1,0 +1,1 @@
+sh 00_script.sh /home/users/team_projects/Radiation_signature/02_bam/IR-spleen.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/mm_study4_fallopian_IR_SO1.s.md.ir.br.bam mm_study4_fallopian_IR_SO1

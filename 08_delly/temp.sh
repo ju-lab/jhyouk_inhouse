@@ -1,9 +1,20 @@
-cp 20Gy_1_S01_S.delly.vcf ../33_SV_filter
-cp 20Gy_1_S03_S.delly.vcf ../33_SV_filter
-cp 8Gy_2_S01_S.delly.vcf ../33_SV_filter
-cp 8Gy_2_S02_S.delly.vcf ../33_SV_filter
-cp 2Gy_2_S03_S.delly.vcf ../33_SV_filter
-cp 2Gy_2_S04_S.delly.vcf ../33_SV_filter
-cp L3_S01_Single.delly.vcf ../33_SV_filter
-cp L3_S02_Single.delly.vcf ../33_SV_filter
-cp C3SO3.delly.vcf ../33_SV_filter
+-rw-r--r-- 1 jhyouk julab  9.2M  5월 22 10:49 mm_study4_breast_sham_SO2.delly.vcf
+-rw-r--r-- 1 jhyouk julab  9.6M  5월 22 10:49 mm_study4_breast_sham_SO3.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.8M  5월 22 10:49 mm_study4_stomach_sham_SO1.delly.vcf
+-rw-r--r-- 1 jhyouk julab  9.5M  5월 22 10:49 mm_study4_stomach_sham_SO2.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.9M  5월 22 10:49 mm_study4_stomach_sham_SO3.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.6M  5월 22 10:49 mm_study4_stomach_IR_SO1.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.3M  5월 22 10:49 mm_study4_stomach_IR_SO2.delly.vcf
+-rw-r--r-- 1 jhyouk julab  7.9M  5월 22 10:49 mm_study4_stomach_IR_SO3.delly.vcf
+-rw-r--r-- 1 jhyouk julab  7.7M  5월 22 10:49 mm_study4_liver_IR_SO1.delly.vcf
+-rw-r--r-- 1 jhyouk julab  7.9M  5월 22 10:49 mm_study4_liver_IR_SO2.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.4M  5월 22 10:49 mm_study4_liver_sham_SO1.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.8M  5월 22 10:49 mm_study4_liver_sham_SO2.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.9M  5월 22 10:49 mm_study4_liver_sham_SO3.delly.vcf
+-rw-r--r-- 1 jhyouk julab  9.3M  5월 22 10:49 mm_study4_colon_sham_SO3.delly.vcf
+-rw-r--r-- 1 jhyouk julab   64M  5월 22 10:49 mm_study4_SI_IR_SO3.delly.vcf
+-rw-r--r-- 1 jhyouk julab   60M  5월 22 10:49 mm_study4_SI_IR_SO4.delly.vcf
+-rw-r--r-- 1 jhyouk julab   63M  5월 22 10:49 mm_study4_SI_sham_SO1.delly.vcf
+-rw-r--r-- 1 jhyouk julab  7.2M  5월 22 10:49 mm_study4_fallopian_sham_SO1.delly.vcf
+-rw-r--r-- 1 jhyouk julab  8.4M  5월 22 10:49 mm_study4_fallopian_sham_SO2.delly.vcf
+-rw-r--r-- 1 jhyouk julab   64M  5월 22 10:49 mm_study2_pancreas_sham_C3SO1SO1_normoxia_SO2.delly.vcf

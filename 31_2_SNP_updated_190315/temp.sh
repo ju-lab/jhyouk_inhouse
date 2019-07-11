@@ -1,26 +1,2 @@
-Liver_20Gy_1_G
-L3_Germline
-L3_Germline
-L3_Germline
-Panc_8Gy_2_G
-Panc_8Gy_2_G
-Liver_2Gy_2_G
-Liver_2Gy_2_G
-Liver_20Gy_1_G
-Panc_C3_BO
-Panc_C3_BO
-Panc_8Gy1_BO
-Panc_8Gy1_BO
-Liver_2Gy_2_G
-Panc_8Gy1_BO
-Panc_8Gy1_BO
-Liver_2Gy_2_G
-Liver_20Gy_1_G
-male_panc_L3BO
-male_panc_L3BO
-Liver_20Gy_1_G
-Liver_20Gy_1_G
-Liver_2Gy_2_G
-Liver_2Gy_2_G
-Liver_20Gy_1_G
-Panc_C3_BO
+sh 000_1_script_run_invivo_2nd.sh mm_study4_fallopian_sham_SO1 Normal-spleen mm10_b6_6_190521.6s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh mm_study4_fallopian_sham_SO2 Normal-spleen mm10_b6_6_190521.6s.q0Q0.chr1.mpileup.snv.edit.gz

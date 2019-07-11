@@ -1,0 +1,15 @@
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_breast_sham_SO1 Normal-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_breast_IR_SO1 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_breast_IR_SO2 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_breast_IR_SO3 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_liver_IR_SO3 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_colon_sham_SO1 Normal-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_colon_sham_SO2 Normal-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_colon_IR_SO1 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_colon_IR_SO2 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_colon_IR_SO3 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_SI_IR_SO1 mm_study4_germline_2nd_IR 1 2 mm10 XY
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_fallopian_IR_SO1 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_fallopian_IR_SO2 IR-spleen 1 2 mm10 XX
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study2_pancreas_sham_C3SO1SO1 Panc_C3_BO 1 2 mm10 XY
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study2_pancreas_sham_C3SO1SO1_normoxia_SO1 Panc_C3_BO 1 2 mm10 XY

@@ -8,7 +8,6 @@ outputDir=$(dirname $1)
 log=$outputDir/$1.sv.annotation.out
 
 echo $1 $2 > $log
-if false; then
 echo "Start annotation"
 (sh /home/users/jhyouk/06_mm10_SNUH_radiation/33_SV_filter/01_Delly_annotation.sh $1.delly.vcf 10 $2 $3 $4 /home/users/jhyouk/06_mm10_SNUH_radiation/33_SV_filter/Delly_annotation_scripts) &>> $log || { c=$?;echo "Error";exit $c; }
 echo "done"
@@ -17,6 +16,7 @@ echo "filter1 start"
 (python 02_SV_filter1.py $1 ) &>> $log || { c=$?;echo "Error";exit $c; }
 echo "filter1 done"
 
+if false; then
 #from here for invitro culture
 echo "mother_info annotation"
 (python /home/users/jhyouk/06_mm10_SNUH_radiation/33_SV_filter/Delly_annotation_scripts/21.mother_count_frag_find_newBP.py $1.delly.somatic.annotated.filter1.vcf $5 $3) &>> $log || { c=$?;echo "Error";exit $c; }

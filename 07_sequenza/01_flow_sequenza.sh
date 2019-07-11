@@ -5,7 +5,6 @@ mpileup_pwd=$1
 sampleName=$2
 normalPileup=$3
 
-if false; then
 #create seqz file from the two mpileups
 echo bam2seqz
 sequenza-utils bam2seqz -gc /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/gc50base.mm10.wig.gz -n $1/$normalPileup.mpileup -t $1/$sampleName.mpileup -p -o $sampleName.seqz > $sampleName.bam2seqz.out 2>&1
@@ -26,8 +25,7 @@ echo done
 
 #cleanup
 rm $sampleName.seqz $sampleName.comp.seqz 
-fi
 
 #further analysis
-Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/03_Rscript_sequenza.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName &> $sampleName.Rscript.out
-#Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/11_Rscript_sequenzawithpurity.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName-withpurity 1 2 &> $sampleName.purity.Rscript.out
+#Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/03_Rscript_sequenza.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName &> $sampleName.Rscript.out
+Rscript /home/users/jhyouk/06_mm10_SNUH_radiation/07_sequenza/11_Rscript_sequenzawithpurity.R $sampleName.comp.seqz.rmGLMTJH.gz $sampleName-withpurity 1 2 &> $sampleName.purity.Rscript.out

@@ -1,0 +1,15 @@
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_breast_sham_SO1 Normal-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_breast_IR_SO1 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_breast_IR_SO2 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_breast_IR_SO3 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_liver_IR_SO3 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_colon_sham_SO1 Normal-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_colon_sham_SO2 Normal-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_colon_IR_SO1 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_colon_IR_SO2 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_colon_IR_SO3 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_SI_IR_SO1 mm_study4_germline_2nd_IR
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_fallopian_IR_SO1 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study4_fallopian_IR_SO2 IR-spleen
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study2_pancreas_sham_C3SO1SO1 Panc_C3_BO
+sh 00_Delly.sh /home/users/team_projects/Radiation_signature/02_bam mm_study2_pancreas_sham_C3SO1SO1_normoxia_SO1 Panc_C3_BO
