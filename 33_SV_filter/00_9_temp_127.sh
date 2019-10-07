@@ -1,128 +1,128 @@
-#ID	Dose	cultulre	tissue	batch	Germline	cultureday
-S1-4Gy-2	4	invitro	pancreas	A	N1spleen	39
-S1-8Gy-1	8	invitro	pancreas	A	N1spleen	39
-S1-1Gy-2	1	invitro	pancreas	A	N1spleen	39
-S1-2Gy-2	2	invitro	pancreas	A	N1spleen	39
-S1-0Gy-2	0	invitro	pancreas	A	N1spleen	39
-S1-2Gy-1	2	invitro	pancreas	A	N1spleen	39
-S1-4Gy-1	4	invitro	pancreas	A	N1spleen	39
-S1-1Gy-1	1	invitro	pancreas	A	N1spleen	39
-S1-0Gy-1	0	invitro	pancreas	A	N1spleen	39
-S1P13_0-4	0	invitro	pancreas	A	N1spleen	39
-S1P13_0-5	0	invitro	pancreas	A	N1spleen	39
-S1P12_0-3	0	invitro	pancreas	A	N1spleen	39
-S1P12_0-7	0	invitro	pancreas	A	N1spleen	39
-S1P13_2-3	2	invitro	pancreas	A	N1spleen	39
-S1N2P16_4-7	4	invitro	pancreas	B	N1spleen	59
-S1N2P15_2-8	2	invitro	pancreas	B	N1spleen	59
-S1N2P16_4-5	4	invitro	pancreas	B	N1spleen	59
-S1N2P16_4-6	4	invitro	pancreas	B	N1spleen	59
-S1N2P15_4-1	4	invitro	pancreas	B	N1spleen	59
-S1N2P15_0-2	0	invitro	pancreas	B	N1spleen	59
-S1N2P15_0-1	0	invitro	pancreas	B	N1spleen	59
-S1N2P16_2-11	2	invitro	pancreas	B	N1spleen	59
-S1N2P16_4-8	4	invitro	pancreas	B	N1spleen	59
-S1N2P15_4-2	4	invitro	pancreas	B	N1spleen	59
-S1N2P15_0-3	0	invitro	pancreas	B	N1spleen	59
-S1N2P15_0-4	0	invitro	pancreas	B	N1spleen	59
-S1N2P16_2-4	2	invitro	pancreas	B	N1spleen	59
-S1N2P16_2-3	2	invitro	pancreas	B	N1spleen	59
-S1N2P15_0-5	0	invitro	pancreas	B	N1spleen	59
-S1N2P16_2-5	2	invitro	pancreas	B	N1spleen	59
-S1N2P15_1-1	1	invitro	pancreas	B	N1spleen	59
-S1N2P16_4-3	4	invitro	pancreas	B	N1spleen	59
-S1N2P16_2-9	2	invitro	pancreas	B	N1spleen	59
-S1N2P16_4-4	4	invitro	pancreas	B	N1spleen	59
-S1N2P15_2-2	2	invitro	pancreas	B	N1spleen	59
-S1N2P15_2-7	2	invitro	pancreas	B	N1spleen	59
-S1N2P15_2-6	2	invitro	pancreas	B	N1spleen	59
-S1N2P15_2-1a	2	invitro	pancreas	B	N1spleen	59
-S1N2P15_1-3a	1	invitro	pancreas	B	N1spleen	59
-S1N2P15_1-5a	1	invitro	pancreas	B	N1spleen	59
-S1N2P15_1-4a	1	invitro	pancreas	B	N1spleen	59
-S1N2P15_1-2a	1	invitro	pancreas	B	N1spleen	59
-B3-0_2Gy-2	2	invitro	breast	C	Spleen_m3	74
-B3-0_2Gy-3	2	invitro	breast	C	Spleen_m3	74
-B3-0_1Gy-4	1	invitro	breast	C	Spleen_m3	74
-B3-0_2Gy-6	2	invitro	breast	C	Spleen_m3	74
-B3-0_1Gy-5	1	invitro	breast	C	Spleen_m3	74
-B3-0_2Gy-4	2	invitro	breast	C	Spleen_m3	74
-B3-0_1Gy-6	1	invitro	breast	C	Spleen_m3	74
-B3-0_1Gy_1-P20	1	invitro	breast	C	Spleen_m3	74
-B3-0_P19_2Gy-8	2	invitro	breast	C	Spleen_m3	74
-B3-0_1Gy-2	1	invitro	breast	C	Spleen_m3	74
-B3-0_1Gy-3	1	invitro	breast	C	Spleen_m3	74
-B3-0_P19_0Gy-1	0	invitro	breast	C	Spleen_m3	74
-B3-0_0Gy-3	0	invitro	breast	C	Spleen_m3	74
-B3-0_2Gy-5	2	invitro	breast	C	Spleen_m3	74
-B3-0_P19_4Gy-4	4	invitro	breast	C	Spleen_m3	74
-B3-0_P19_4Gy-5	4	invitro	breast	C	Spleen_m3	74
-B3-0_2Gy-7	2	invitro	breast	C	Spleen_m3	74
-B3-0_2Gy-1	2	invitro	breast	C	Spleen_m3	74
-B3-0_P19_4Gy-2	4	invitro	breast	C	Spleen_m3	74
-B3-0_0Gy_2	0	invitro	breast	C	Spleen_m3	74
-N1-S1	0	invitro	pancreas	MA	N1spleen	17
-B3S100	0	invitro	breast	MC	Spleen_m3	28
-20Gy_1_S01_S	20	invivo_1st	pancreas	D	Liver_20Gy_1_G	17
-L3_S02_Single	-1	invivo_1st	pancreas	LA	L3_Germline	22
-L3_S01_Single	-1	invivo_1st	pancreas	LA	L3_Germline	22
-8Gy_2_S02_S	8	invivo_1st	pancreas	D	Panc_8Gy_2_G	17
-8Gy_2_S01_S	8	invivo_1st	pancreas	D	Panc_8Gy_2_G	17
-2Gy_2_S04_S	8	invivo_1st	pancreas	D	Liver_2Gy_2_G	17
-2Gy_2_S03_S	8	invivo_1st	pancreas	D	Liver_2Gy_2_G	17
-Liver_C3SO2	0	invivo_1st	liver	D	Panc_C3_BO	17
-Liver_C3SO1	0	invivo_1st	liver	D	Panc_C3_BO	17
-Liver_8Gy1_SO5	8	invivo_1st	liver	D	Panc_8Gy1_BO	17
-Liver_8Gy1_SO3	8	invivo_1st	liver	D	Panc_8Gy1_BO	17
-Panc_8Gy1_SO3	8	invivo_1st	pancreas	D	Panc_8Gy1_BO	17
-Panc_8Gy1_SO1	8	invivo_1st	pancreas	D	Panc_8Gy1_BO	17
-Panc_2Gy2_SO2	8	invivo_1st	pancreas	D	Liver_2Gy_2_G	17
-male_panc_L3SO5	-1	invivo_1st	pancreas	LB	male_panc_L3BO	31
-male_panc_L3SO4	-1	invivo_1st	pancreas	LB	male_panc_L3BO	31
-Liver_20Gy1_SO2	20	invivo_1st	liver	D	Liver_20Gy_1_G	17
-Liver_20Gy1_SO1	20	invivo_1st	liver	D	Liver_20Gy_1_G	17
-Liver_2Gy2_SO2	8	invivo_1st	liver	D	Liver_2Gy_2_G	17
-Liver_2Gy2_SO1	8	invivo_1st	liver	D	Liver_2Gy_2_G	17
-Liver_20Gy1_SO4	20	invivo_1st	liver	D	Liver_20Gy_1_G	17
-Panc_C3_SO1	0	invivo_1st	liver	D	Panc_C3_BO	17
-mm_study4_breast_sham_SO1	0	invivo_2nd	breast	E1	Normal-spleen	0
-mm_study4_breast_sham_SO2	0	invivo_2nd	breast	E1	Normal-spleen	0
-mm_study4_breast_sham_SO3	0	invivo_2nd	breast	E1	Normal-spleen	0
-mm_study4_breast_IR_SO1	8	invivo_2nd	breast	E1	IR-spleen	0
-mm_study4_breast_IR_SO2	8	invivo_2nd	breast	E1	IR-spleen	0
-mm_study4_breast_IR_SO3	8	invivo_2nd	breast	E1	IR-spleen	0
-mm_study4_stomach_sham_SO1	0	invivo_2nd	stomach	E1	Normal-spleen	0
-mm_study4_stomach_sham_SO2	0	invivo_2nd	stomach	E1	Normal-spleen	0
-mm_study4_stomach_sham_SO3	0	invivo_2nd	stomach	E1	Normal-spleen	0
-mm_study4_stomach_IR_SO1	8	invivo_2nd	stomach	E1	IR-spleen	0
-mm_study4_stomach_IR_SO2	8	invivo_2nd	stomach	E1	IR-spleen	0
-mm_study4_stomach_IR_SO3	8	invivo_2nd	stomach	E1	IR-spleen	0
-mm_study4_liver_IR_SO1	8	invivo_2nd	liver	E1	IR-spleen	0
-mm_study4_liver_IR_SO2	8	invivo_2nd	liver	E1	IR-spleen	0
-mm_study4_liver_IR_SO3	8	invivo_2nd	liver	E1	IR-spleen	0
-mm_study4_liver_sham_SO1	0	invivo_2nd	liver	E1	Normal-spleen	0
-mm_study4_liver_sham_SO2	0	invivo_2nd	liver	E1	Normal-spleen	0
-mm_study4_liver_sham_SO3	0	invivo_2nd	liver	E1	Normal-spleen	0
-mm_study4_colon_sham_SO1	0	invivo_2nd	colon	E1	Normal-spleen	0
-mm_study4_colon_sham_SO2	0	invivo_2nd	colon	E1	Normal-spleen	0
-mm_study4_colon_sham_SO3	0	invivo_2nd	colon	E1	Normal-spleen	0
-mm_study4_colon_IR_SO1	8	invivo_2nd	colon	E1	IR-spleen	0
-mm_study4_colon_IR_SO2	8	invivo_2nd	colon	E1	IR-spleen	0
-mm_study4_colon_IR_SO3	8	invivo_2nd	colon	E1	IR-spleen	0
-mm_study4_SI_IR_SO1	8	invivo_2nd	small_intestine	E2	mm_study4_SI_IR_SO4	0
-mm_study4_SI_IR_SO3	8	invivo_2nd	small_intestine	E2	mm_study4_SI_IR_SO4	0
-mm_study4_SI_IR_SO4	8	invivo_2nd	small_intestine	E2	mm_study4_SI_IR_SO1	0
-mm_study4_SI_sham_SO1	0	invivo_2nd	small_intestine	E2	mm_study4_germline_2nd_sham	0
-mm_study4_fallopian_IR_SO1	8	invivo_2nd	fallopian_tube	E1	IR-spleen	0
-mm_study4_fallopian_IR_SO2	8	invivo_2nd	fallopian_tube	E1	IR-spleen	0
-mm_study4_fallopian_sham_SO1	0	invivo_2nd	fallopian_tube	E1	Normal-spleen	0
-mm_study4_fallopian_sham_SO2	0	invivo_2nd	fallopian_tube	E1	Normal-spleen	0
-HBIR1-1	50	human_postRT	breast	H	HBIR1_germline	0
-HBIR1-2	50	human_postRT	breast	H	HBIR1_germline	0
-HBIR2-1	50	human_postRT	breast	H	HBIR2_germ	0
-HBIR2-4	50	human_postRT	breast	H	HBIR2_germ	0
-hs_study5_colon_IR_HCIR1_SC1	50	human_postRT	colon	H	HCIR1	0
-hs_study5_colon_IR_HCIR1_SC2	50	human_postRT	colon	H	HCIR1	0
-hs_study5_colon_IR_HCIR1_SC6	50	human_postRT	colon	H	HCIR1	0
-hs_study5_colon_control_HCNor1_SC4	0	human_postRT	colon	H	hs_study5_colon_control_HCNor1_SC5	0
-hs_study5_colon_control_HCNor1_SC5	0	human_postRT	colon	H	hs_study5_colon_control_HCNor1_SC4	0
+ID	Dose	cultulre	tissue	batch	Germline	cultureday	species
+S1-4Gy-2	4	invitro	pancreas	A	N1spleen	39	Mouse
+S1-8Gy-1	8	invitro	pancreas	A	N1spleen	39	Mouse
+S1-1Gy-2	1	invitro	pancreas	A	N1spleen	39	Mouse
+S1-2Gy-2	2	invitro	pancreas	A	N1spleen	39	Mouse
+S1-0Gy-2	0	invitro	pancreas	A	N1spleen	39	Mouse
+S1-2Gy-1	2	invitro	pancreas	A	N1spleen	39	Mouse
+S1-4Gy-1	4	invitro	pancreas	A	N1spleen	39	Mouse
+S1-1Gy-1	1	invitro	pancreas	A	N1spleen	39	Mouse
+S1-0Gy-1	0	invitro	pancreas	A	N1spleen	39	Mouse
+S1P13_0-4	0	invitro	pancreas	A	N1spleen	39	Mouse
+S1P13_0-5	0	invitro	pancreas	A	N1spleen	39	Mouse
+S1P12_0-3	0	invitro	pancreas	A	N1spleen	39	Mouse
+S1P12_0-7	0	invitro	pancreas	A	N1spleen	39	Mouse
+S1P13_2-3	2	invitro	pancreas	A	N1spleen	39	Mouse
+S1N2P16_4-7	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_2-8	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_4-5	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_4-6	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_4-1	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_0-2	0	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_0-1	0	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_2-11	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_4-8	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_4-2	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_0-3	0	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_0-4	0	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_2-4	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_2-3	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_0-5	0	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_2-5	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_1-1	1	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_4-3	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_2-9	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P16_4-4	4	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_2-2	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_2-7	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_2-6	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_2-1a	2	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_1-3a	1	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_1-5a	1	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_1-4a	1	invitro	pancreas	B	N1spleen	59	Mouse
+S1N2P15_1-2a	1	invitro	pancreas	B	N1spleen	59	Mouse
+B3-0_2Gy-2	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_2Gy-3	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_1Gy-4	1	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_2Gy-6	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_1Gy-5	1	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_2Gy-4	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_1Gy-6	1	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_1Gy_1-P20	1	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_P19_2Gy-8	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_1Gy-2	1	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_1Gy-3	1	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_P19_0Gy-1	0	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_0Gy-3	0	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_2Gy-5	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_P19_4Gy-4	4	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_P19_4Gy-5	4	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_2Gy-7	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_2Gy-1	2	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_P19_4Gy-2	4	invitro	breast	C	Spleen_m3	74	Mouse
+B3-0_0Gy_2	0	invitro	breast	C	Spleen_m3	74	Mouse
+N1-S1	0	invitro	pancreas	MA	N1spleen	17	Mouse
+B3S100	0	invitro	breast	MC	Spleen_m3	18	Mouse
+20Gy_1_S01_S	20	invivo_1st	pancreas	D	Liver_20Gy_1_G	17	Mouse
+L3_S02_Single	-1	invivo_1st	pancreas	LA	L3_Germline	22	Mouse
+L3_S01_Single	-1	invivo_1st	pancreas	LA	L3_Germline	22	Mouse
+8Gy_2_S02_S	8	invivo_1st	pancreas	D	Panc_8Gy_2_G	17	Mouse
+8Gy_2_S01_S	8	invivo_1st	pancreas	D	Panc_8Gy_2_G	17	Mouse
+2Gy_2_S04_S	8	invivo_1st	pancreas	D	Liver_2Gy_2_G	17	Mouse
+2Gy_2_S03_S	8	invivo_1st	pancreas	D	Liver_2Gy_2_G	17	Mouse
+Liver_C3SO2	0	invivo_1st	liver	D	Panc_C3_BO	17	Mouse
+Liver_C3SO1	0	invivo_1st	liver	D	Panc_C3_BO	17	Mouse
+Liver_8Gy1_SO5	8	invivo_1st	liver	D	Panc_8Gy1_BO	17	Mouse
+Liver_8Gy1_SO3	8	invivo_1st	liver	D	Panc_8Gy1_BO	17	Mouse
+Panc_8Gy1_SO3	8	invivo_1st	pancreas	D	Panc_8Gy1_BO	17	Mouse
+Panc_8Gy1_SO1	8	invivo_1st	pancreas	D	Panc_8Gy1_BO	17	Mouse
+Panc_2Gy2_SO2	8	invivo_1st	pancreas	D	Liver_2Gy_2_G	17	Mouse
+male_panc_L3SO5	-1	invivo_1st	pancreas	LB	male_panc_L3BO	31	Mouse
+male_panc_L3SO4	-1	invivo_1st	pancreas	LB	male_panc_L3BO	31	Mouse
+Liver_20Gy1_SO2	20	invivo_1st	liver	D	Liver_20Gy_1_G	17	Mouse
+Liver_20Gy1_SO1	20	invivo_1st	liver	D	Liver_20Gy_1_G	17	Mouse
+Liver_2Gy2_SO2	8	invivo_1st	liver	D	Liver_2Gy_2_G	17	Mouse
+Liver_2Gy2_SO1	8	invivo_1st	liver	D	Liver_2Gy_2_G	17	Mouse
+Liver_20Gy1_SO4	20	invivo_1st	liver	D	Liver_20Gy_1_G	17	Mouse
+Panc_C3_SO1	0	invivo_1st	liver	D	Panc_C3_BO	17	Mouse
+mm_study4_breast_sham_SO1	0	invivo_2nd	breast	E1	Normal-spleen	0	Mouse
+mm_study4_breast_sham_SO2	0	invivo_2nd	breast	E1	Normal-spleen	0	Mouse
+mm_study4_breast_sham_SO3	0	invivo_2nd	breast	E1	Normal-spleen	0	Mouse
+mm_study4_breast_IR_SO1	8	invivo_2nd	breast	E1	IR-spleen	0	Mouse
+mm_study4_breast_IR_SO2	8	invivo_2nd	breast	E1	IR-spleen	0	Mouse
+mm_study4_breast_IR_SO3	8	invivo_2nd	breast	E1	IR-spleen	0	Mouse
+mm_study4_stomach_sham_SO1	0	invivo_2nd	stomach	E1	Normal-spleen	0	Mouse
+mm_study4_stomach_sham_SO2	0	invivo_2nd	stomach	E1	Normal-spleen	0	Mouse
+mm_study4_stomach_sham_SO3	0	invivo_2nd	stomach	E1	Normal-spleen	0	Mouse
+mm_study4_stomach_IR_SO1	8	invivo_2nd	stomach	E1	IR-spleen	0	Mouse
+mm_study4_stomach_IR_SO2	8	invivo_2nd	stomach	E1	IR-spleen	0	Mouse
+mm_study4_stomach_IR_SO3	8	invivo_2nd	stomach	E1	IR-spleen	0	Mouse
+mm_study4_liver_IR_SO1	8	invivo_2nd	liver	E1	IR-spleen	0	Mouse
+mm_study4_liver_IR_SO2	8	invivo_2nd	liver	E1	IR-spleen	0	Mouse
+mm_study4_liver_IR_SO3	8	invivo_2nd	liver	E1	IR-spleen	0	Mouse
+mm_study4_liver_sham_SO1	0	invivo_2nd	liver	E1	Normal-spleen	0	Mouse
+mm_study4_liver_sham_SO2	0	invivo_2nd	liver	E1	Normal-spleen	0	Mouse
+mm_study4_liver_sham_SO3	0	invivo_2nd	liver	E1	Normal-spleen	0	Mouse
+mm_study4_colon_sham_SO1	0	invivo_2nd	colon	E1	Normal-spleen	0	Mouse
+mm_study4_colon_sham_SO2	0	invivo_2nd	colon	E1	Normal-spleen	0	Mouse
+mm_study4_colon_sham_SO3	0	invivo_2nd	colon	E1	Normal-spleen	0	Mouse
+mm_study4_colon_IR_SO1	8	invivo_2nd	colon	E1	IR-spleen	0	Mouse
+mm_study4_colon_IR_SO2	8	invivo_2nd	colon	E1	IR-spleen	0	Mouse
+mm_study4_colon_IR_SO3	8	invivo_2nd	colon	E1	IR-spleen	0	Mouse
+mm_study4_SI_IR_SO1	8	invivo_2nd	small_intestine	E2	mm_study4_SI_IR_SO4	0	Mouse
+mm_study4_SI_IR_SO3	8	invivo_2nd	small_intestine	E2	mm_study4_SI_IR_SO4	0	Mouse
+mm_study4_SI_IR_SO4	8	invivo_2nd	small_intestine	E2	mm_study4_SI_IR_SO1	0	Mouse
+mm_study4_SI_sham_SO1	0	invivo_2nd	small_intestine	E2	mm_study4_germline_2nd_sham	0	Mouse
+mm_study4_fallopian_IR_SO1	8	invivo_2nd	fallopian_tube	E1	IR-spleen	0	Mouse
+mm_study4_fallopian_IR_SO2	8	invivo_2nd	fallopian_tube	E1	IR-spleen	0	Mouse
+mm_study4_fallopian_sham_SO1	0	invivo_2nd	fallopian_tube	E1	Normal-spleen	0	Mouse
+mm_study4_fallopian_sham_SO2	0	invivo_2nd	fallopian_tube	E1	Normal-spleen	0	Mouse
+HBIR1-1	50	Human_postRT	breast	H	HBIR1_germline	0	Human
+HBIR1-2	50	Human_postRT	breast	H	HBIR1_germline	0	Human
+HBIR2-1	50	Human_postRT	breast	H	HBIR2_germ	0	Human
+HBIR2-4	50	Human_postRT	breast	H	HBIR2_germ	0	Human
+hs_study5_colon_IR_HCIR1_SC1	50	Human_postRT	colon	H	HCIR1	0	Human
+hs_study5_colon_IR_HCIR1_SC2	50	Human_postRT	colon	H	HCIR1	0	Human
+hs_study5_colon_IR_HCIR1_SC6	50	Human_postRT	colon	H	HCIR1	0	Human
+hs_study5_colon_control_HCNor1_SC4	0	Human_postRT	colon	H	hs_study5_colon_control_HCNor1_SC5	0	Human
+hs_study5_colon_control_HCNor1_SC5	0	Human_postRT	colon	H	hs_study5_colon_control_HCNor1_SC4	0	Human

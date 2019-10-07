@@ -1,0 +1,3 @@
+sh 000_SV_anno_filter.sh mm_study1_pancreas_Lowdose_SO4	/home/users/team_projects/Radiation_signature/02_bam/mm_study1_pancreas_Lowdose_SO4.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/L3_Germline.s.md.ir.br.bam PON.delly.mouse.13s.txt
+sh 000_SV_anno_filter.sh mm_study2_liver_8by1Gy_SO4	/home/users/team_projects/Radiation_signature/02_bam/mm_study2_liver_8by1Gy_SO4.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/Panc_8Gy1_BO.s.md.ir.br.bam PON.delly.mouse.13s.txt
+sh 000_SV_anno_filter.sh mm_study3_pancreas_Lowdose_SO1	/home/users/team_projects/Radiation_signature/02_bam/mm_study3_pancreas_Lowdose_SO1.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/02_bam/male_panc_L3BO.s.md.ir.br.bam PON.delly.mouse.13s.txt

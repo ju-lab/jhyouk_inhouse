@@ -1,0 +1,3 @@
+sh 000_1_script_run_indel_invivo_2nd.sh mm_study1_pancreas_Lowdose_SO4 L3_Germline mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.indel.edit.gz
+sh 000_1_script_run_indel_invivo_2nd.sh mm_study2_liver_8by1Gy_SO4 Panc_8Gy1_BO mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.indel.edit.gz
+sh 000_1_script_run_indel_invivo_2nd.sh mm_study3_pancreas_Lowdose_SO1 male_panc_L3BO mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.indel.edit.gz

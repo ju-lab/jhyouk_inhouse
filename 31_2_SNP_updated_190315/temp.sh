@@ -1,2 +1,7 @@
-sh 000_1_script_run_invivo_2nd.sh mm_study4_fallopian_sham_SO1 Normal-spleen mm10_b6_6_190521.6s.q0Q0.chr1.mpileup.snv.edit.gz
-sh 000_1_script_run_invivo_2nd.sh mm_study4_fallopian_sham_SO2 Normal-spleen mm10_b6_6_190521.6s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh Liver_20Gy_1_G_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh L3_Germline_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh male_panc_L3BO_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh Panc_8Gy_2_G_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh Liver_2Gy_2_G_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh Panc_C3_BO_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz
+sh 000_1_script_run_invivo_2nd.sh Panc_8Gy1_BO_bulk mm_study4_germline_2nd_sham mm10_balbc_9_190521.9s.q0Q0.chr1.mpileup.snv.edit.gz

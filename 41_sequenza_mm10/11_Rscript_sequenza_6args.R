@@ -1,3 +1,4 @@
+.libPaths("/home/users/jhyouk/R/x86_64-redhat-linux-gnu-library/3.5")
 library("sequenza")
 library("copynumber")
 args<-commandArgs(trailingOnly=TRUE)

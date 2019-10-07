@@ -58,17 +58,18 @@ draw_kataegis <- function(clonalsnp,chr,pos_start,pos_end){
 }
 
 nrow(snp)
-
+30/85
+28/85
 setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_2_SNP_updated_190315/")
 setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/31_SNP_annotation/")
 clonalsnp <- read.csv("HBIR2-1_snp_true.vcf",header=F,as.is=T,sep='\t')
-clonalsnp <- read.csv("mm_study4_fallopian_IR_SO2_snp_true.vcf",header=T,as.is=T,sep='\t')
+clonalsnp <- read.csv("S1N2P15_2-6_snp_clonal.vcf",header=F,as.is=T,sep='\t')
 clonalsnp <- clonalsnp[,c(1:5)]
 colnames(clonalsnp) <- c("chr", "pos", "rs", "ref", "alt")
 
 pdf("S1N2P15_2-6_chrX_kataegis.pdf")
 draw_kataegis(clonalsnp, 12, 60000000, 122000000)
-draw_kataegis(clonalsnp, 'X', 30000000, 171000000)
+a<-draw_kataegis(clonalsnp, 'X', 30000000, 171000000)
 dev.off()
 
 draw_kataegis(clonalsnp, 15, 1000000, 42000000)

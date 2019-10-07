@@ -1,0 +1,7 @@
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup Liver_20Gy_1_G mm_study4_germline_2nd_sham
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup L3_Germline mm_study4_germline_2nd_sham
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup male_panc_L3BO mm_study4_germline_2nd_sham
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup Panc_8Gy_2_G mm_study4_germline_2nd_sham
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup Liver_2Gy_2_G mm_study4_germline_2nd_sham
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup Panc_C3_BO mm_study4_germline_2nd_sham
+sh 00_varscan.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup Panc_8Gy1_BO mm_study4_germline_2nd_sham

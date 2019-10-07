@@ -148,15 +148,41 @@ for (i in file_list[,1][1:nrow(file_list)]){
 }
 dev.off()
 
+#invivo_2nd_2
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_3_SNP_fixed_190923/")
+par(mfrow=c(1,2))
+file_list <- read.table("00_9_invivo_2nd_2.txt",header = F)
+file_list[1:3,1:3]
+pdf(file = "SNV_plot_invivo_2nd_2_190923_v3.pdf")
+par(mfrow=c(1,1))
+for (i in file_list[,1][1:nrow(file_list)]){
+#for (i in file_list[,1][1:1]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_clonal <- input_true_all %>% subset(.$V34 >=0.3)
+  #input_true_all <- input_true_all %>% {.$V37[.$V37>3]<-3;.}
+  
+  #hist(input_true_all[,37],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_all (clonal mutation=',nrow(input_true_all),')',sep = ''),xlim=c(0,2), xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #lines(density(input_true_all[,37]))
+  #abline(v=1.0,col='red');abline(v=0.6,col='blue')
+  #input_true_all$V34[input_true_all$V34>1]
+  
+  #hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main= paste(i,'_all (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_all[,34]))
+  abline(v=0.5,col='red');abline(v=0.45,col='blue')
+}
+dev.off()
+
 #human
 setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/31_SNP_annotation")
 par(mfrow=c(1,1))
 file_list <- read.table("00_9_human_1st.txt",header = F)
 file_list[1:3,1:3]
-pdf(file = "SNV_plot_human_190711_v3.pdf")
+pdf(file = "SNV_plot_human_190923_v1.pdf")
 par(mfrow=c(1,2))
-for (i in file_list[,1][1:nrow(file_list)]){
-#for (i in file_list[,1][3:4]){
+#for (i in file_list[,1][1:nrow(file_list)]){
+for (i in file_list[,1][2:2]){
   input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.coverage.vcf", sep=''),header=F)
   input_true_all <- input_file %>% subset(.$V35 =='TRUE')
   #input_clonal <- input_true_all %>% subset(.$V37 >=0.6)
@@ -171,9 +197,9 @@ for (i in file_list[,1][1:nrow(file_list)]){
   #hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
   hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main=nrow(input_clonal),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
   lines(density(input_true_all[,34]))
-  abline(v=0.5,col='red');abline(v=0.3,col='blue')
+  abline(v=0.5,col='red');abline(v=0.45,col='blue')
 }
-dev.off()
+ dev.off()
 
 
 
@@ -338,3 +364,183 @@ hist(input_file[,34],breaks = seq(0,1,by=0.01), probability = T,main = "4B2-7",x
 lines(density(input_file[,34]))
 abline(v=0.5,col='red');abline(v=0.3,col='blue')
 par(mfrow=c(1,1))
+
+
+
+########Radiation bulk tissue#############
+getwd()
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_2_SNP_updated_190315/")
+par(mfrow=c(1,1))
+file_list <- read.table("00_9_bulk_7.sh",header = F)
+file_list[1:3,1]
+pdf(file = "bulk_plot_190827.pdf")
+#for (i in file_list[,1][1:nrow(file_list)]){
+for (i in file_list[,1][1:1]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_clonal <- input_true_all %>% subset(.$V34 >=0.3)
+
+  hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_all[,34]))
+  abline(v=0.5,col='red');abline(v=0.3,col='blue')
+}
+dev.off()
+# Calculate differential value
+a<-density(input_true_all[,34])
+a$x
+a$y
+a$x[which(diff(a$y)/diff(a$x) < 1e-100)]
+
+
+pdf(file = "bulk_plot_190827_frequency.pdf")
+#for (i in file_list[,1][1:nrow(file_list)]){
+for (i in file_list[,1][1:1]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_clonal <- input_true_all %>% subset(.$V34 >=0.3)
+  
+  hist(input_true_all[,34],breaks = seq(0,1,by=0.01), ylim=c(0,50),probability = F,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "frequency", border='gray',col='gray',cex.main=0.8)
+  #lines(density(input_true_all[,34]))
+  abline(v=0.5,col='red');abline(v=0.3,col='blue')
+  
+  input_vague <- input_true_all %>% subset(.$V34 >0.7)
+  
+}
+print(input_vague[,1:2])
+nrow(input_vague)
+dev.off()
+
+#######Define clonal samples#################
+
+total_list <- read.table("00_9_mouse_human_190813.txt",header=T)
+file_list <- total_list[total_list$batch == 'A' | total_list$batch == 'B',]
+for (i in file_list[,1][1:1]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_true_all <- input_true_all %>% {.$V41[.$V41>2]<-3;.}
+
+  input_true_new <- subset(input_true_all,input_true_all$V42 == 'none_to_subclonal' | input_true_all$V42 == 'none_to_clonal' | input_true_all$V42 == 'subclonal_to_clonal' | input_true_all$V42 == 'subclonal_to_subclonal')
+  input_clonal <- subset(input_true_all, input_true_all$V42 == 'none_to_clonal' | input_true_all$V42 == 'subclonal_to_clonal' | input_true_all$V42 == 'subclonal_to_subclonal')
+  #hist(input_true_new[,41],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_new (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,2),xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #lines(density(input_true_new[,41]))
+  #abline(v=1.0,col='red');abline(v=0.8,col='blue')
+  
+  hist(input_true_new[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_new_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_new[,34]))
+  #abline(v=0.5,col='red');abline(v=0.4,col='blue')
+
+  line_fc <- density(input_true_new[,34])
+  diff1<- diff(line_fc$y)/diff(line_fc$x)
+  line_fc$x[which(diff1<10^-10)]
+}
+total_list
+file_list
+file_list[,1][2:2]
+plot(c(0,1),c(0,10),type='n')
+for (i in 1:10){
+  lapply(file_list[,1][i],
+            function(x){
+              read.table(paste(x,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F) %>%
+                filter(.$V35 =='TRUE') %>%
+                filter(.$V42 == 'none_to_subclonal' | .$V42 == 'none_to_clonal')  %>%
+                .$V34 %>%
+                density %>% lines
+                #{.$x[which(diff(x=.$y) / diff(x=.$x) < 10^-10)]} 
+            })
+  a<-lapply(file_list[,1][i],
+       function(x){
+         read.table(paste(x,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F) %>%
+           filter(.$V35 =='TRUE') %>%
+           filter(.$V42 == 'none_to_subclonal' | .$V42 == 'none_to_clonal')  %>%
+           .$V34 %>%
+           density %>% 
+           {.$x[which(diff(x=.$y) / diff(x=.$x) < 10^-10)]} 
+         }) %>% unlist
+  b<-lapply(file_list[,1][i],
+            function(x){
+              read.table(paste(x,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F) %>%
+                filter(.$V35 =='TRUE') %>%
+                filter(.$V42 == 'none_to_subclonal' | .$V42 == 'none_to_clonal')  %>%
+                .$V34 %>%
+                density %>% 
+                {.$x[which(diff(x=.$y) / diff(x=.$x) / diff(x=.$x) < 0)]} 
+            }) %>% unlist
+  #print(a)
+  #print(b)
+  #if((length(a[a>0.45]) * length(a[a<0.5]) * length(b[b>0.45]) * length(b[b<0.5])) > 0 ) print(file_list[,1][i])
+  print(a[a>0.45 & a<0.5])
+  print(b[b>0.45 & b<0.5])
+}
+
+#### Cosolidation for clonal samples ####
+total_list <- read.table("00_9_mouse_human_190813.txt",header=T)
+file_list <- total_list[total_list$batch == 'A' | total_list$batch == 'B',]
+for (i in file_list[,1][1:1]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_true_all <- input_true_all %>% {.$V41[.$V41>2]<-3;.}
+  
+  input_true_new <- subset(input_true_all,input_true_all$V42 == 'none_to_subclonal' | input_true_all$V42 == 'none_to_clonal')
+  input_clonal <- subset(input_true_all, input_true_all$V42 == 'none_to_clonal')
+  #hist(input_true_new[,41],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_new (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,2),xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #lines(density(input_true_new[,41]))
+  #abline(v=1.0,col='red');abline(v=0.8,col='blue')
+  
+  hist(input_true_new[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_new_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_new[,34]))
+  abline(v=0.5,col='red');abline(v=0.4,col='blue')
+}
+
+
+#all
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_3_SNP_fixed_190923/")
+file_list <- read.table("00_9_mouse_human_190813_snp.txt",header = T)
+file_list[1:3,1:3]
+pdf(file = "SNV_plot_filter1_190923_v1.pdf")
+par(mfrow=c(1,1))
+#for (i in file_list[,1][1:62]){
+for (i in file_list[,1][63:nrow(file_list)]){
+#for (i in file_list[,1][1:1]){
+  #input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  input_clonal <- input_true_all %>% subset(.$V34 >=0.3)
+  #input_true_all <- input_true_all %>% {.$V37[.$V37>3]<-3;.}
+  
+  #hist(input_true_all[,37],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_all (clonal mutation=',nrow(input_true_all),')',sep = ''),xlim=c(0,2), xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #lines(density(input_true_all[,37]))
+  #abline(v=1.0,col='red');abline(v=0.6,col='blue')
+  #input_true_all$V34[input_true_all$V34>1]
+  
+  #hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main= paste(i,'_all (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_all[,34]))
+  abline(v=0.5,col='red');abline(v=0.45,col='blue')
+}
+dev.off()
+
+pdf(file = "SNV_plot_filter2_190923_v1.pdf")
+for (i in file_list[,1][1:62]){
+  input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F)
+  input_true_all <- input_file %>% subset(.$V35 =='TRUE')
+  #input_true_all <- input_true_all %>% {.$V41[.$V41>2]<-3;.}
+  #all
+  #hist(input_true_all[,43],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_all (total mutation=',nrow(input_true_all),')',sep = ''),xlim=c(0,2), xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray')
+  #lines(density(input_true_all[,43]))
+  #abline(v=1.0,col='red');abline(v=0.8,col='blue')
+  #hist(input_true_all[,36],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (total mutation=',nrow(input_true_all),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray')
+  #lines(density(input_true_all[,36]))
+  #abline(v=0.5,col='red');abline(v=0.4,col='blue')
+  
+  #new(remove clonal mother cell mutation)
+  input_true_new <- subset(input_true_all,input_true_all$V42 == 'none_to_subclonal' | input_true_all$V42 == 'none_to_clonal' | input_true_all$V42 == 'subclonal_to_clonal' | input_true_all$V42 == 'subclonal_to_subclonal')
+  input_clonal <- subset(input_true_all, input_true_all$V42 == 'none_to_clonal' | input_true_all$V42 == 'subclonal_to_clonal' | input_true_all$V42 == 'subclonal_to_subclonal')
+  #hist(input_true_new[,41],breaks = seq(0,3,by=0.02), probability = T,main = paste(i,'_new (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,2),xlab="Estimated cell proportion", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #lines(density(input_true_new[,41]))
+  #abline(v=1.0,col='red');abline(v=0.8,col='blue')
+  
+  hist(input_true_new[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_new_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  lines(density(input_true_new[,34]))
+  abline(v=0.5,col='red');abline(v=0.45,col='blue')
+}
+dev.off()
