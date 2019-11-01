@@ -94,12 +94,13 @@ frc_del$number<-table(total_sv$experiment)
 frc_del$ci<-1.96*frc_del$sd/sqrt(frc_del$number)
 frc_del$se<-frc_del$sd/sqrt(frc_del$number)
 
-frc_inv
-
 frc_inv <- frc_inv[c(3,2,1),]
 frc_tra <- frc_tra[c(3,2,1),]
 frc_radio <- frc_radio[c(3,2,1),]
 frc_del<- frc_del[c(3,2,1),]
+
+frc_radio 
+frc_del
 
 pdf(file="SVs_vs_8fx.pdf")
 plot(c(1,2,3),frc_radio$mean, col = alpha('black',1), pch=20,xlim=c(0.5,3.5),ylim=c(0,4.5), main = "Radiation-related SVs vs 8Gy fractions", xlab = "Fractions", ylab = "Mean number of structural variations")

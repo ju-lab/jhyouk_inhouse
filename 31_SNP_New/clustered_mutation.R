@@ -156,3 +156,6 @@ boxplot(as.numeric(dbs$numberofclustered[43:62]) ~ as.numeric(dbs$Dose[43:62]),y
 boxplot(as.numeric(dbs$numberofclustered[1:14])/as.numeric(dbs$Totalnone_to_clonalmutations[1:14]) ~ as.numeric(dbs$Dose[1:14]),ylim=c(0,0.05),col='red',main='none_to_clonal_invitro clustered snps',xlab='Radiation dose', ylab='Ratio (dbs/total)',pch=16,pars = list(boxwex=0.5),border='red')
 boxplot(as.numeric(dbs$numberofclustered[15:42])/as.numeric(dbs$Totalnone_to_clonalmutations[15:42]) ~ as.numeric(dbs$Dose[15:42]),ylim=c(0,0.05),col='blue',main='none_to_clonal_invitro clustered snps',xlab='Radiation dose', ylab='Ratio (dbs/total)',pch=16,pars = list(boxwex=0.5),border='blue')
 boxplot(as.numeric(dbs$numberofclustered[43:62])/as.numeric(dbs$Totalnone_to_clonalmutations[43:62]) ~ as.numeric(dbs$Dose[43:62]),ylim=c(0,0.025),col='black',main='none_to_clonal_invitro clustered snps',xlab='Radiation dose', ylab='Ratio (dbs/total)',pch=16,pars = list(boxwex=0.5))
+
+######################################
+

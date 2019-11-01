@@ -240,3 +240,130 @@ points(indel_ratio$dose[15:42],indel_ratio$smalldeletion[15:42],col='blue')
 points(indel_ratio$dose[43:62],indel_ratio$smalldeletion[43:62],col='black')
 
 indel_ratio[43:62,]
+
+
+
+###########################################
+########191016 indel count comparison######
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/")
+info_file = read.table("00_9_mouse_human_191010.txt",header=T)
+info_file[1:5,1:5]
+batch_A <- info_file[info_file$batch=='A' & info_file$clonality == 'clonal',]
+batch_A
+file_list <- c()
+for (i in batch_A[,1]){
+  temp<-read.table(file = paste0(i,".true.clonal.combine.vcf"),header=T)
+  file_list <- c(file_list,nrow(temp))
+}
+file_list
+batch_A$SNPs_clonal <- file_list
+nrow(batch_A)
+plot(batch_A$Dose,batch_A$SNPs_clonal,ylim = c(0,3000))
+
+batch_B <- info_file[info_file$batch=='B' & info_file$clonality == 'clonal',]
+length(batch_B[,1])
+b_list <- c()
+for (i in batch_B[,1]){
+  temp<-read.table(file = paste0(i,".true.clonal.combine.vcf"),header=T)
+  b_list <- c(b_list,nrow(temp))
+}
+b_list
+batch_B$SNPs_clonal <- b_list
+batch_B
+points(batch_B$Dose,batch_B$SNPs_clonal,col='brown')
+
+par(mfrow=c(1,1))
+
+shapiro.test(batch_A$SNPs_clonal) #<0.5 -> use non-parametric!
+wilcox.test(batch_A$SNPs_clonal,batch_B$SNPs_clonal)
+
+t.test(batch_A$SNPs_clonal,batch_B$SNPs_clonal)
+1066/39
+1404/59
+(1404-1066)/20
+pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/indel_group_comparison_boxplot.pdf")
+boxplot(batch_A$SNPs_clonal,batch_B$SNPs_clonal,boxwex=0.25,names = c("Group A","Group B"),ylab= "The number of indels",ylim=c(0,2500))
+stripchart(list(batch_A$SNPs_clonal,batch_B$SNPs_clonal), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+dev.off()
+
+
+a_control <- filter(batch_A,batch_A$Dose==0)
+a_ir <- filter(batch_A,batch_A$Dose>0)
+t.test(a_control$SNPs_clonal,a_ir$SNPs_clonal)
+wilcox.test(a_control$SNPs_clonal,a_ir$SNPs_clonal)
+
+b_control <- filter(batch_B,batch_B$Dose==0)
+b_ir <- filter(batch_B,batch_B$Dose>0)
+t.test(b_control$SNPs_clonal,b_ir$SNPs_clonal)
+wilcox.test(b_control$SNPs_clonal,b_ir$SNPs_clonal)
+length(a_control)
+length(a_ir)
+
+###non-repetitive indels###
+
+#<5
+control_nr = c(12, 7, 13, 9, 20, 14, 19, 23, 10)
+ir_nr = c(22, 33, 1, 32, 42, 34, 17, 55, 80, 52, 84, 82, 87, 69, 73, 57, 69, 36, 34, 28, 46, 51, 42, 41, 49, 43, 43, 30, 31, 28, 21)
+
+wilcox.test(control_nr,ir_nr)
+t.test(control_nr,ir_nr)
+summary(control_nr)
+summary(ir_nr)
+length(control_nr)
+length(ir_nr)
+
+a_control_nr<-c(12, 7, 13, 9, 20)
+a_ir_nr<-c(22, 33, 1, 32, 42, 34, 17, 55)
+b_control_nr<-c(14, 19, 23, 10)
+b_ir_nr<-c(80, 52, 84, 82, 87, 69, 73, 57, 69, 36, 34, 28, 46, 51, 42, 41, 49, 43, 43, 30, 31, 28, 21)
+
+wilcox.test(a_control_nr,a_ir_nr)
+t.test(a_control_nr,a_ir_nr)
+
+wilcox.test(b_control_nr,b_ir_nr)
+t.test(b_control_nr,b_ir_nr)
+
+wilcox.test(a_control_nr,b_control_nr)
+t.test(a_control_nr,b_control_nr)
+summary(a_control_nr)
+summary(a_ir_nr)
+summary(b_control_nr)
+summary(b_ir_nr)
+
+pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/non_repetitive_indels_boxplot.pdf")
+boxplot(a_control_nr,a_ir_nr,b_control_nr,b_ir_nr,boxwex=0.3,names = c("control","irradiation","control","irradiation"),ylab= "The number of indels",ylim=c(0,100))
+stripchart(list(a_control_nr,a_ir_nr,b_control_nr,b_ir_nr), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+dev.off()
+
+
+
+
+
+
+###histogram of nonrepetitive indels###
+control_size <- read.table("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/nonrepetitive_indel_control.txt",header=F)
+ir_size <- read.table("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/nonrepetitive_indel_ir.txt",header=F)
+pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/nonrepetitive_indel_size_distribution.pdf")
+hist(rowSums(control_size),breaks = seq(from = -35.5, to = 99.5, by = 1),col=rgb(0,0,1,0.3),border=F,freq = F,right = F,ylim=c(0,0.6), main = "Indel size distribution of control and irradiated samples",xlab = 'Indel size (bp)')
+hist(rowSums(ir_size),breaks = seq(from = -35.5, to = 99.5, by = 1),col=rgb(1,0,0,0.3),border=F,add=T,freq = F,right = F)
+legend(60,0.4,c("control","irradiation"),fill=c(rgb(1,0,0,0.3),rgb(0,0,1,0.3)),border=F)
+dev.off()
+
+summary(rowSums(control_size))
+summary(rowSums(ir_size))
+t.test(rowSums(control_size),rowSums(ir_size))
+
+length(rowSums(control_size)[rowSums(control_size)>2])
+length(rowSums(control_size)[rowSums(control_size)>0])
+
+length(rowSums(ir_size)[rowSums(ir_size)>2])
+length(rowSums(ir_size)[rowSums(ir_size)>0])
+
+a<-matrix(c(101-23,23,1292-686,686),nrow=2,byrow = T)
+chisq.test(a)
+a
+pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/3bp_1-2bp_barplot.pdf")
+barplot(c(a[1,2]/a[1,1],a[2,2]/a[2,1]),ylim=c(0,1.5),space = 3,xlab='control samples (n=9) / irradiated samples (n=31)',ylab=">3bp small deletions / 1-2bp small deletions",col='gray',border='gray')
+dev.off()

@@ -29,3 +29,23 @@ png(filename = "/home/users/jhyouk/06_mm10_SNUH_radiation/10_SNP_combination/dbs
 plot(DBS,ylim=c(0,20),xlab="Radiation dose(Gy)",ylab="The number of SNPs",pch=18,main="Single Base Substitutions",cex=2)
 plot(DBS_ratio,ylim=c(0,0.03),xlab="Radiation dose(Gy)",ylab="The number of SNPs",pch=18,main="Single Base Substitutions",cex=2)
 dev.off()
+
+
+
+#########cumulative DSBS signature, 0Gy vs irradiated clonal murine pancreas samples ##############
+DBS0 <- read.table("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010/my_analysis/DBS_control.reformat.txt",header=T,sep='\t',row.names = 1)
+DBS1 <- read.table("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010/my_analysis/DBS_irradiation.reformat.txt",header=T,sep='\t',row.names = 1)
+
+par(mfrow=c(2,1))
+rowSums(DBS1)
+DBS_sum<-rowSums(DBS1)/sum(rowSums(DBS1))
+barplot(DBS_sum,las=2,ylim=c(0,0.2))
+DBS_sum0<-rowSums(DBS0)/sum(rowSums(DBS0))
+barplot(DBS_sum0,las=2,ylim=c(0,0.2))
+dev.off()
+
+pdf("DBS_siganture+101015.pdf")
+barplot(rowSums(DBS1),las=2,main = 'irradiated samples')
+barplot(rowSums(DBS0),las=2,main = 'control samples')
+dev.off()
+getwd()

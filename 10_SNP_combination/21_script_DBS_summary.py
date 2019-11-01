@@ -1,7 +1,7 @@
 import sys
 input_fn = sys.argv[1]
 input_file = file(input_fn)
-output_file = file(input_fn.replace('.vcf','.reformat.vcf'),'w')
+output_file = file(input_fn.replace('.txt','.reformat.txt'),'w')
 output_file.write(' '+'\t'+input_fn.split('.')[0] + '\n')
 input_line = input_file.readline()
 if input_line[0:1] == '#':

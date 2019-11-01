@@ -498,11 +498,14 @@ file_list <- read.table("00_9_mouse_human_190813_snp.txt",header = T)
 file_list[1:3,1:3]
 pdf(file = "SNV_plot_filter1_190923_v1.pdf")
 par(mfrow=c(1,1))
+temp_list = c("")
 #for (i in file_list[,1][1:62]){
 for (i in file_list[,1][63:nrow(file_list)]){
 #for (i in file_list[,1][1:1]){
+#for (i in temp_list){
   #input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
   input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf", sep=''),header=F)
+  #input_file <- read.table("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010/8Gy_2_S01_S_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.vcf",header=F)
   input_true_all <- input_file %>% subset(.$V35 =='TRUE')
   input_clonal <- input_true_all %>% subset(.$V34 >=0.3)
   #input_true_all <- input_true_all %>% {.$V37[.$V37>3]<-3;.}
@@ -514,13 +517,22 @@ for (i in file_list[,1][63:nrow(file_list)]){
   
   #hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_all_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
   hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T,main= paste(i,'_all (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #hist(input_true_all[,34],breaks = seq(0,1,by=0.01), probability = T)
   lines(density(input_true_all[,34]))
   abline(v=0.5,col='red');abline(v=0.45,col='blue')
 }
 dev.off()
 
-pdf(file = "SNV_plot_filter2_190923_v1.pdf")
-for (i in file_list[,1][1:62]){
+#######mother_batch "a" vaf plots###########
+pdf(file = "SNV_plot_filter2_191015_v1.pdf",paper = "a4")
+#par(mfrow=c(6,7),mar=c(5.1,4.1,4.1,2.1))
+par(mfrow=c(7,6),mar=c(1.1,1.1,4.1,1.1))
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010")
+total_list <- read.table("00_9_mouse_human_191010.txt",header=T)
+file_list <- total_list[total_list$mother_batch == 'a',]
+file_list
+nrow(file_list)
+for (i in file_list[,1]){
   input_file <- read.table(paste(i,"_snp_union_2.readinfo.readc.rasmy_PanelofNormal.filter1.readc.rasmy.filter2.vcf", sep=''),header=F)
   input_true_all <- input_file %>% subset(.$V35 =='TRUE')
   #input_true_all <- input_true_all %>% {.$V41[.$V41>2]<-3;.}
@@ -539,8 +551,74 @@ for (i in file_list[,1][1:62]){
   #lines(density(input_true_new[,41]))
   #abline(v=1.0,col='red');abline(v=0.8,col='blue')
   
-  hist(input_true_new[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_new_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  #hist(input_true_new[,34],breaks = seq(0,1,by=0.01), probability = T,main = paste(i,'_new_vaf (clonal mutation=',nrow(input_clonal),')',sep = ''),xlim=c(0,1),xlab="Variant allele frequency (VAF)", ylab = "Density", border='gray',col='gray',cex.main=0.8)
+  hist(input_true_new[,34],breaks = seq(0,1,by=0.01), probability = T,main = i,xlim=c(0,1),xlab=NULL, yaxt='n',ylab = NULL, border='gray',col='gray',cex.main=0.8)
   lines(density(input_true_new[,34]))
-  abline(v=0.5,col='red');abline(v=0.45,col='blue')
+  abline(v=0.5,col='red');abline(v=0.4,col='blue')
 }
 dev.off()
+
+
+
+###SNP number according to radiation dose
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010/mouse")
+info_file = read.table("00_9_mouse_human_191010.txt",header=T)
+info_file[1:5,1:5]
+batch_A <- info_file[info_file$batch=='A' & info_file$clonality == 'clonal',]
+batch_A
+file_list <- c()
+for (i in batch_A[,1]){
+  temp<-read.table(file = paste0(i,".true.clonal.vcf"),header=T)
+  file_list <- c(file_list,nrow(temp))
+}
+file_list
+batch_A$SNPs_clonal <- file_list
+nrow(batch_A)
+plot(batch_A$Dose,batch_A$SNPs_clonal,ylim=c(200,1800))
+
+batch_B <- info_file[info_file$batch=='B' & info_file$clonality == 'clonal',]
+length(batch_B[,1])
+b_list <- c()
+for (i in batch_B[,1]){
+  temp<-read.table(file = paste0(i,".true.clonal.vcf"),header=T)
+  b_list <- c(b_list,nrow(temp))
+}
+b_list
+batch_B$SNPs_clonal <- b_list
+batch_B
+points(batch_B$Dose,batch_B$SNPs_clonal,col='brown')
+
+par(mfrow=c(1,1))
+
+t.test(batch_A$SNPs_clonal,batch_B$SNPs_clonal)
+717/39
+994/59
+(994-717)/20
+pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010/mouse/snp_group_comparison_boxplot.pdf")
+boxplot(batch_A$SNPs_clonal,batch_B$SNPs_clonal,boxwex=0.25,names = c("Group A","Group B"),ylab= "The number of SNPs",ylim=c(0,1800))
+stripchart(list(batch_A$SNPs_clonal,batch_B$SNPs_clonal), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+dev.off()
+
+
+na_control <- filter(batch_A,batch_A$Dose==0)
+a_ir <- filter(batch_A,batch_A$Dose>0)
+t.test(a_control$SNPs_clonal,a_ir$SNPs_clonal)
+.
+b_control <- filter(batch_B,batch_B$Dose==0)
+b_ir <- filter(batch_B,batch_B$Dose>0)
+t.test(b_control$SNPs_clonal,b_ir$SNPs_clonal)
+
+#######DBS###########
+dbs_control = c(5, 7, 5, 6, 6, 5, 7, 18, 2)
+dbs_ir = c(7, 13, 9, 13, 11, 6, 5, 12, 7, 18, 15, 15, 12, 4, 17, 15, 10, 4, 18, 5, 9, 9, 7, 6) #>=2Gy
+#dbs_ir = c(7, 13, 1, 9, 13, 11, 9, 6, 5, 12, 7, 18, 15, 15, 12, 4, 17, 15, 11, 6, 4, 18, 5, 9, 9, 7, 6, 4, 5, 5, 9)
+length(dbs_control)
+length(dbs_ir)
+
+summary(dbs_control)
+summary(dbs_ir)
+wilcox.test(dbs_control,dbs_ir)
+
+dbs_control = c(5, 7, 18, 2)
+dbs_ir = c(5, 12, 7, 18, 15, 15, 12, 4, 17, 15, 11, 4, 18, 5, 9, 9, 7, 6)
