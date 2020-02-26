@@ -1,0 +1,1 @@
+sh 00_script_mpileup.sh Liver_20Gy_S03

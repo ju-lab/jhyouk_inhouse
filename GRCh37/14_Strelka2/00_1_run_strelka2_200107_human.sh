@@ -1,0 +1,1 @@
+sh 00_human_b37_script_ucsc.sh /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37/S12_10269_N.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37/S12_10269_T.s.md.ir.br.bam S12_10269_T

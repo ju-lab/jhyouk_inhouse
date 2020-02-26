@@ -1,0 +1,1 @@
+sh /home/users/jhyouk/81_filter_test_LADC/13_SV/01_1_script_annotation_radiation_human.sh HBIR2-1_trimmed HBIR2_trimmed /home/users/team_projects/Radiation_signature/07_bam_human_sample_GRCh37_trimmed /home/users/jhyouk/81_filter_test_LADC/13_SV/PON.delly.txt hg19

@@ -1,0 +1,1 @@
+sh 00_human_b37_script_mpileup.sh HCIR1

@@ -1,0 +1,10 @@
+sh 00_human_b37_script_mpileup_ucsc.sh S14_54949_T
+sh 00_human_b37_script_mpileup_ucsc.sh S15_40859_T
+sh 00_human_b37_script_mpileup_ucsc.sh S17_11918T
+sh 00_human_b37_script_mpileup_ucsc.sh S17_50179_T
+sh 00_human_b37_script_mpileup_ucsc.sh S15_40859_17_T_new
+sh 00_human_b37_script_mpileup_ucsc.sh S17_11918T_re
+sh 00_human_b37_script_mpileup_ucsc.sh S14_54949_N
+sh 00_human_b37_script_mpileup_ucsc.sh S15_40859_FR8_N_new
+sh 00_human_b37_script_mpileup_ucsc.sh S17_2782_N
+sh 00_human_b37_script_mpileup_ucsc.sh S_17_50179_3_N

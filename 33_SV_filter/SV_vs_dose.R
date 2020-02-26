@@ -6,8 +6,9 @@ setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/33_SV_filter/")
 #### compare using FACS sorting case
 
 ########## in vitro pancreas (0,1,2,4,8Gy one shot)
-total_sv <- read.table("summary_156_v2.txt",header=T,sep='\t')
+total_sv <- read.table("summary_156_v7.txt",header=T,sep='\t')
 total_sv$"radiation-related" <- total_sv$Balanced.Inversion + total_sv$Balanced.Translocation + total_sv$Simple.Deletion...1Mb..1  + total_sv$Double.minutes + total_sv$SSDI + total_sv$X2Rearrangements.from..3DSBs + total_sv$X.2Rearrangements.from..3DSBs+  total_sv$Chromoplexy + total_sv$Chromothripsis + total_sv$BFB.cycles
+total_sv$"complex" <- total_sv$X2Rearrangements.from..3DSBs + total_sv$X.2Rearrangements.from..3DSBs+  total_sv$Chromoplexy + total_sv$SSDI
 total_sv$all_del <- total_sv$Simple.Deletion...1Mb.
 
 total_sv <- total_sv %>% filter(experiment == 'A' | experiment == 'B')
@@ -15,8 +16,10 @@ total_sv$SampleID
 total_sv <- total_sv[-2,] # non-clonal
 total_sv <- total_sv[-7,] # non-clonal
 total_sv <- total_sv[-40,] # 8Gy d/t 1 sample
-total_sv[35:40,1:3]
+total_sv[35:40,c(1,15:21)]
 nrow(total_sv)
+total_sv[36,]$`radiation-related`<-3
+input_file
 
 num_one <- table(total_sv$Dose)
 one_inv<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(Balanced.Inversion),median(Balanced.Inversion),sd(Balanced.Inversion)))
@@ -24,13 +27,14 @@ one_tra<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(Balanced.T
 #total_sv %>% group_by(Dose) %>% summarise(mean(SSDI),median(SSDI),sd(SSDI))
 one_radio<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(`radiation-related`),median(`radiation-related`),sd(`radiation-related`)))
 one_del<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(all_del),median(all_del),sd(all_del)))
-
+one_complex<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(complex),median(complex),sd(complex)))
 #total_sv %>% group_by(Dose) %>% summarise(mean(Total),median(Total),sd(Total))
 
 colnames(one_inv)<-c("Dose","mean","median","sd")
 colnames(one_tra)<-c("Dose","mean","median","sd")
 colnames(one_radio)<-c("Dose","mean","median","sd")
 colnames(one_del)<-c("Dose","mean","median","sd")
+colnames(one_complex)<-c("Dose","mean","median","sd")
 
 one_radio$number<-num_one
 one_radio$ci<-1.96*one_radio$sd/sqrt(one_radio$number)
@@ -41,7 +45,7 @@ one_del$ci<-1.96*one_del$sd/sqrt(one_del$number)
 one_del$se<-one_del$sd/sqrt(one_del$number)
 
 
-pdf(file="SVs_vs_dose.pdf")
+pdf(file="SVs_vs_dose_191227.pdf")
 plot(one_radio$Dose,one_radio$mean, col = alpha('black',1), pch=20,ylim=c(0,4.5), main = "Radiation-related SVs vs radiation-dose at once", xlab = "Dose at once (Gy)", ylab = "Mean of structural variations")
 lines(one_radio$Dose,one_radio$mean, col = alpha('black',1))
 arrows(one_radio$Dose,one_radio$mean-one_radio$se,one_radio$Dose,one_radio$mean+one_radio$se,length = 0.05,angle=90,code=3,col = alpha('black',1))
@@ -51,6 +55,9 @@ points(one_tra$Dose,one_tra$mean,col=alpha('bisque4',0.7), pch=20)
 lines(one_tra$Dose,one_tra$mean,col=alpha('bisque4',0.7),lty=2)
 legend(0.5,4,c("radiation-related SVs", "balanced inversions", "balanced translocations"),lty = c(1,2,2), pch=20, col=c(alpha('black',1),alpha('dodgerblue4',0.7),alpha('bisque4',0.7)))
 dev.off()
+
+#points(one_complex$Dose,one_complex$mean,col=alpha('red',0.7), pch=20)
+#lines(one_complex$Dose,one_complex$mean,col=alpha('red',0.7),lty=2)
 
 pdf("simple_del_dose.pdf")
 plot(one_del$Dose,one_del$mean,col=alpha('lightskyblue4',1), pch=20,ylim=c(0,3.5), main = "Simple Deletions (<1Mb) vs radiation-dose at once", xlab = "Dose (at once)", ylab = "Mean number of simple deletions (<1Mb)")
@@ -101,7 +108,7 @@ frc_del<- frc_del[c(3,2,1),]
 
 frc_radio 
 frc_del
-
+frc_radio$mean
 pdf(file="SVs_vs_8fx.pdf")
 plot(c(1,2,3),frc_radio$mean, col = alpha('black',1), pch=20,xlim=c(0.5,3.5),ylim=c(0,4.5), main = "Radiation-related SVs vs 8Gy fractions", xlab = "Fractions", ylab = "Mean number of structural variations")
 lines(c(1,2,3),frc_radio$mean, col = alpha('black',1))

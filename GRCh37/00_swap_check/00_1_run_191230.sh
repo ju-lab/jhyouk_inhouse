@@ -1,0 +1,1 @@
+python check_sample_swap.py -b temp4.txt -s ./src_ucsc -r /home/users/jhyouk/99_reference/human/hg19_UCSC/ucsc.hg19.fasta -t 2 -p /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/00_swap_check/src_ucsc/hg19_aeg.sites.2015_08_chrall_snp_cds_cut_0.1_0.9.txt.fi.segdup.pos &> temp4.out

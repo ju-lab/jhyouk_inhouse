@@ -1,0 +1,1 @@
+sh 00_human_b37_script_pcawg.sh /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37/SARC-US-normal-0007.s.md.ir.br.bam /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37/SARC-US-tumor-0007.s.md.ir.br.bam SARC-US-tumor-0007

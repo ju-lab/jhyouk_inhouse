@@ -1,0 +1,1 @@
+sh /home/users/jhyouk/81_filter_test_LADC/13_SV/01_1_script_annotation_uveal.sh 1-15-Tumor 3-29-Blood /home/users/team_projects/uveal_melanoma/02_bam /home/users/jhyouk/81_filter_test_LADC/13_SV/PON.delly.11s.txt hg19

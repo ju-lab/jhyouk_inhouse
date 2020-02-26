@@ -1,0 +1,2 @@
+sh /home/users/jhyouk/81_filter_test_LADC/13_SV/01_1_script_annotation_radiation_human_ucsc.sh 18_1277T 18_1277N /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37 /home/users/jhyouk/81_filter_test_LADC/13_SV/PON.delly.txt hg19
+sh /home/users/jhyouk/81_filter_test_LADC/13_SV/01_1_script_annotation_radiation_human_ucsc.sh S17_11918T S17_2782_N /home/users/team_projects/Radiation_signature/05_bam_human_sample_GRCh37 /home/users/jhyouk/81_filter_test_LADC/13_SV/PON.delly.txt hg19

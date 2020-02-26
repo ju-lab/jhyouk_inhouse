@@ -1,0 +1,6 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=1
+#PBS -j oe
+#PBS -o /home/users/jhyouk/06_mm10_SNUH_radiation/41_sequenza_mm10/qsub_sdout/01_1_run_sequenza_190726_27.sh.sdout
+cd /home/users/jhyouk/06_mm10_SNUH_radiation/41_sequenza_mm10
+sh 01_flow_sequenza_mm10.sh /home/users/jhyouk/06_mm10_SNUH_radiation/06_mpileup mm_study4_lung_IR_SO4 mm_study4_germline_3nd_IR 1 2 mm10 XX

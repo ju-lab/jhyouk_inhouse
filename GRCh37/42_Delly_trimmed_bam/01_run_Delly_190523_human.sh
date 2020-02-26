@@ -1,0 +1,1 @@
+sh 00_human_b37_Delly.sh /home/users/team_projects/Radiation_signature/07_bam_human_sample_GRCh37_trimmed HBIR2-1_trimmed HBIR2_trimmed

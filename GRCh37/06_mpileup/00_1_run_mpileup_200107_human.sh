@@ -1,0 +1,2 @@
+sh 00_human_b37_script_mpileup_ucsc.sh S12_10269_T
+sh 00_human_b37_script_mpileup_ucsc.sh S12_10269_N

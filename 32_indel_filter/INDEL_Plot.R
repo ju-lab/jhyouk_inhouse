@@ -348,7 +348,7 @@ ir_size <- read.table("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_1910
 pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/nonrepetitive_indel_size_distribution.pdf")
 hist(rowSums(control_size),breaks = seq(from = -35.5, to = 99.5, by = 1),col=rgb(0,0,1,0.3),border=F,freq = F,right = F,ylim=c(0,0.6), main = "Indel size distribution of control and irradiated samples",xlab = 'Indel size (bp)')
 hist(rowSums(ir_size),breaks = seq(from = -35.5, to = 99.5, by = 1),col=rgb(1,0,0,0.3),border=F,add=T,freq = F,right = F)
-legend(60,0.4,c("control","irradiation"),fill=c(rgb(1,0,0,0.3),rgb(0,0,1,0.3)),border=F)
+legend(60,0.4,c("irradiation","control"),fill=c(rgb(1,0,0,0.3),rgb(0,0,1,0.3)),border=F)
 dev.off()
 
 summary(rowSums(control_size))
@@ -367,3 +367,152 @@ a
 pdf("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010/mouse/3bp_1-2bp_barplot.pdf")
 barplot(c(a[1,2]/a[1,1],a[2,2]/a[2,1]),ylim=c(0,1.5),space = 3,xlab='control samples (n=9) / irradiated samples (n=31)',ylab=">3bp small deletions / 1-2bp small deletions",col='gray',border='gray')
 dev.off()
+
+
+
+######191227 nr indel vs doses #######
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010")
+input_file <- read.table("nr_indel_with_doses.txt",header=F)
+colnames(input_file) <- c("ID","Dose","Batch","N")
+input_file <- input_file[input_file$Dose != 8,]
+plot(input_file$Dose,input_file$N)
+plot(input_file$Dose[input_file$Batch=='A'],input_file$N[input_file$Batch=='A'])
+plot(input_file$Dose[input_file$Batch=='B'],input_file$N[input_file$Batch=='B'])
+summary(input_file$N[input_file$Batch=='A' & input_file$Dose==0])
+summary(input_file$N[input_file$Batch=='B'& input_file$Dose==0])
+
+plot(input_file$Dose[input_file$Batch=='A'],input_file$N[input_file$Batch=='A'] - 12)
+plot(input_file$Dose[input_file$Batch=='B'],input_file$N[input_file$Batch=='B'] -16.5)
+
+input_file$adjusted_N[input_file$Batch=='A'] <- input_file$N[input_file$Batch=='A'] - 12
+input_file$adjusted_N[input_file$Batch=='B'] <- input_file$N[input_file$Batch=='B'] - 16.5
+
+plot(input_file$adjusted_N ~ input_file$Dose)
+abline(lm(input_file$adjusted_N ~ input_file$Dose))
+fit <- lm(input_file$adjusted_N ~ input_file$Dose)
+summary(fit)
+print(summary(lm(input_file$adjusted_N ~ input_file$Dose)))
+confint(fit,input_file$Dose,level=0.95)
+plot(input_file$Dose,fit$residuals)
+abline(h=0)
+fit$coefficientsd
+
+pdf("adjusted_indels_vsDoses.pdf")
+boxplot(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "The number of adjusted indels",xlab=c("Radiation Dose (Gy)"),main = 'The number of adjusted indels vs doses',ylim=c(-10,80))
+#abline(lm(input_file$adjusted_N ~ input_file$Dose))
+stripchart(list(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4]), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+dev.off()
+11.75*0.087
+
+#one_inv<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(Balanced.Inversion),median(Balanced.Inversion),sd(Balanced.Inversion)))
+#indel_summary<-input_file %>% group_by(Dose) %>% summarise(mean(adjusted_N),median(adjusted_N),sd(adjusted_N))
+#indel_summary<-indel_summary[-5,]
+#plot(indel_summary$Dose,indel_summary$`median(adjusted_N)`, col = alpha('black',1), pch=20, main = "Radiation-related indels vs radiation-dose", xlab = "Dose (Gy)", ylab = "Number of indels",xlim=c(0,4))
+#lines(indel_summary$Dose,indel_summary$`median(adjusted_N)`, col = alpha('black',1))
+#arrows(one_radio$Dose,one_radio$mean-one_radio$se,one_radio$Dose,one_radio$mean+one_radio$se,length = 0.05,angle=90,code=3,col = alpha('black',1))
+colnames(input_file)
+colnames(input_file)[1] <- "SampleID"
+sv_indel<- merge(x=total_sv,y=input_file,by="SampleID",all.x=T)
+
+sv_indel$adjusted_N
+sv_indel$dsb <- 1.0873*sv_indel$adjusted_N + sv_indel$`radiation-related`
+plot(sv_indel$Dose.x,sv_indel$dsb)
+abline(lm(sv_indel$dsb~sv_indel$Dose.x))
+sv_indel
+sv_indel_summary<-sv_indel%>% group_by(Dose.x) %>% summarise(mean(dsb),median(dsb),sd(dsb))
+sv_indel_summary
+
+summary(sv_indel$dsb[sv_indel$Dose.x==0])
+summary(sv_indel$dsb[sv_indel$Dose.x==1])
+summary(sv_indel$dsb[sv_indel$Dose.x==2])
+summary(sv_indel$dsb[sv_indel$Dose.x==4])
+sv_indel_summary$lowerQ <- c(-3.26,6.67,29.64,34.06)
+sv_indel_summary$upperQ <- c(2.72,14.63,40.60,74.85)
+
+pdf("estimated_DSBs_vs_Doses.pdf")
+plot(sv_indel_summary$Dose.x,sv_indel_summary$`median(dsb)`, col = alpha('black',1), pch=20, main = "The number of estimated DSBs vs radiation-dose", xlab = "Dose (Gy)", ylab = "Number of estimated DSBs",xlim=c(0,4),ylim=c(-10,80))
+#lines(sv_indel_summary$Dose.x,sv_indel_summary$`median(dsb)`, col = alpha('black',1))
+abline(lm(sv_indel$dsb~sv_indel$Dose.x),col=alpha("black",0.3),lty=2)
+arrows(sv_indel_summary$Dose.x,sv_indel_summary$lowerQ,sv_indel_summary$Dose.x,sv_indel_summary$upperQ,length = 0.05,angle=90,code=3,col = alpha('black',1))
+dev.off()
+lm(sv_indel$dsb~sv_indel$Dose.x)
+
+confint(lm(sv_indel$dsb~sv_indel$Dose.x),sv_indel$Dose.x,level=0.95)
+
+13.685-10.1577
+
+
+
+
+#temp!!!!#####200106 repeat recalc nr indel vs doses #######
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010")
+input_file <- read.table("temp_IDsig_nr_indel_with_doses.txt",header=F)
+colnames(input_file) <- c("ID","Dose","Batch","N")
+input_file <- input_file[input_file$Dose != 8,]
+plot(input_file$Dose,input_file$N)
+plot(input_file$Dose[input_file$Batch=='A'],input_file$N[input_file$Batch=='A'])
+plot(input_file$Dose[input_file$Batch=='B'],input_file$N[input_file$Batch=='B'])
+summary(input_file$N[input_file$Batch=='A' & input_file$Dose==0])
+summary(input_file$N[input_file$Batch=='B'& input_file$Dose==0])
+
+plot(input_file$Dose[input_file$Batch=='A'],input_file$N[input_file$Batch=='A'] - 30)
+plot(input_file$Dose[input_file$Batch=='B'],input_file$N[input_file$Batch=='B'] - 34.5)
+
+input_file$adjusted_N[input_file$Batch=='A'] <- input_file$N[input_file$Batch=='A'] - 30
+input_file$adjusted_N[input_file$Batch=='B'] <- input_file$N[input_file$Batch=='B'] - 34.5
+
+plot(input_file$adjusted_N ~ input_file$Dose)
+abline(lm(input_file$adjusted_N ~ input_file$Dose))
+fit <- lm(input_file$adjusted_N ~ input_file$Dose)
+summary(fit)
+print(summary(lm(input_file$adjusted_N ~ input_file$Dose)))
+confint(fit,input_file$Dose,level=0.95)
+plot(input_file$Dose,fit$residuals)
+abline(h=0)
+fit$coefficientsd
+
+pdf("adjusted_indels_vsDoses.pdf")
+boxplot(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "The number of adjusted indels",xlab=c("Radiation Dose (Gy)"),main = 'The number of adjusted indels vs doses',ylim=c(-10,80))
+#abline(lm(input_file$adjusted_N ~ input_file$Dose))
+stripchart(list(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4]), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+dev.off()
+11.75*0.087
+
+#one_inv<-as.data.frame(total_sv %>% group_by(Dose) %>% summarise(mean(Balanced.Inversion),median(Balanced.Inversion),sd(Balanced.Inversion)))
+#indel_summary<-input_file %>% group_by(Dose) %>% summarise(mean(adjusted_N),median(adjusted_N),sd(adjusted_N))
+#indel_summary<-indel_summary[-5,]
+#plot(indel_summary$Dose,indel_summary$`median(adjusted_N)`, col = alpha('black',1), pch=20, main = "Radiation-related indels vs radiation-dose", xlab = "Dose (Gy)", ylab = "Number of indels",xlim=c(0,4))
+#lines(indel_summary$Dose,indel_summary$`median(adjusted_N)`, col = alpha('black',1))
+#arrows(one_radio$Dose,one_radio$mean-one_radio$se,one_radio$Dose,one_radio$mean+one_radio$se,length = 0.05,angle=90,code=3,col = alpha('black',1))
+colnames(input_file)
+colnames(input_file)[1] <- "SampleID"
+sv_indel<- merge(x=total_sv,y=input_file,by="SampleID",all.x=T)
+
+sv_indel$adjusted_N
+sv_indel$dsb <- 1.0873*sv_indel$adjusted_N + sv_indel$`radiation-related`
+plot(sv_indel$Dose.x,sv_indel$dsb)
+abline(lm(sv_indel$dsb~sv_indel$Dose.x))
+sv_indel
+sv_indel_summary<-sv_indel%>% group_by(Dose.x) %>% summarise(mean(dsb),median(dsb),sd(dsb))
+sv_indel_summary
+
+summary(sv_indel$dsb[sv_indel$Dose.x==0])
+summary(sv_indel$dsb[sv_indel$Dose.x==1])
+summary(sv_indel$dsb[sv_indel$Dose.x==2])
+summary(sv_indel$dsb[sv_indel$Dose.x==4])
+sv_indel_summary$lowerQ <- c(-3.26,6.67,29.64,34.06)
+sv_indel_summary$upperQ <- c(2.72,14.63,40.60,74.85)
+
+pdf("estimated_DSBs_vs_Doses.pdf")
+plot(sv_indel_summary$Dose.x,sv_indel_summary$`median(dsb)`, col = alpha('black',1), pch=20, main = "The number of estimated DSBs vs radiation-dose", xlab = "Dose (Gy)", ylab = "Number of estimated DSBs",xlim=c(0,4),ylim=c(-10,80))
+#lines(sv_indel_summary$Dose.x,sv_indel_summary$`median(dsb)`, col = alpha('black',1))
+abline(lm(sv_indel$dsb~sv_indel$Dose.x),col=alpha("black",0.3),lty=2)
+arrows(sv_indel_summary$Dose.x,sv_indel_summary$lowerQ,sv_indel_summary$Dose.x,sv_indel_summary$upperQ,length = 0.05,angle=90,code=3,col = alpha('black',1))
+dev.off()
+lm(sv_indel$dsb~sv_indel$Dose.x)
+
+confint(lm(sv_indel$dsb~sv_indel$Dose.x),sv_indel$Dose.x,level=0.95)
+
+13.685-10.1577

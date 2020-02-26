@@ -1,0 +1,6 @@
+sh 01_human_b37_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup hs_study5_colon_control_HCNor2_SC1 hs_study5_colon_control_HCNor2_bulktissue 1 2 hg19 XY
+sh 01_human_b37_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup hs_study5_colon_control_HCNor2_SC2 hs_study5_colon_control_HCNor2_bulktissue 1 2 hg19 XY
+sh 01_human_b37_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup hs_study5_colon_control_HCNor2_SC3 hs_study5_colon_control_HCNor2_bulktissue 1 2 hg19 XY
+sh 01_human_b37_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup hs_study5_colon_control_HCNor2_SC4 hs_study5_colon_control_HCNor2_bulktissue 1 2 hg19 XY
+sh 01_human_b37_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup hs_study5_colon_control_HCNor2_SC5 hs_study5_colon_control_HCNor2_bulktissue 1 2 hg19 XY
+sh 01_human_b37_flow_sequenza.sh /home/users/jhyouk/06_mm10_SNUH_radiation/GRCh37/06_mpileup hs_study5_colon_control_HCNor2_SC6 hs_study5_colon_control_HCNor2_bulktissue 1 2 hg19 XY

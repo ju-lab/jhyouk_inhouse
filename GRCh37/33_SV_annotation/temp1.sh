@@ -1,0 +1,4 @@
+HBIR1-1 HBIR1_germline
+HBIR1-2 HBIR1_germline
+HBIR2-1 HBIR2_germ
+HBIR2-4 HBIR2_germ

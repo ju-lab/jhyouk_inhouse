@@ -1,0 +1,1 @@
+sh /home/users/jhyouk/06_mm10_SNUH_radiation/51_Cancer_Data/lung_my_call/01_1_script_annotation_radiation.sh ESAD-UK-tumor-0014 ESAD-UK-normal-0014 /home/users/hspark/Projects/07_SV_filtering/pcawg_bam /home/users/jhyouk/81_filter_test_LADC/13_SV/PON.delly.11s.txt hg19

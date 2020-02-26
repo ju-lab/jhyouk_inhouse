@@ -601,7 +601,7 @@ stripchart(list(batch_A$SNPs_clonal,batch_B$SNPs_clonal), vertical = TRUE,
 dev.off()
 
 
-na_control <- filter(batch_A,batch_A$Dose==0)
+a_control <- filter(batch_A,batch_A$Dose==0)
 a_ir <- filter(batch_A,batch_A$Dose>0)
 t.test(a_control$SNPs_clonal,a_ir$SNPs_clonal)
 .
