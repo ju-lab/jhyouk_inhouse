@@ -574,6 +574,8 @@ for (i in batch_A[,1]){
 file_list
 batch_A$SNPs_clonal <- file_list
 nrow(batch_A)
+batch_A<-batch_A[-2,]
+batch_A
 plot(batch_A$Dose,batch_A$SNPs_clonal,ylim=c(200,1800))
 
 batch_B <- info_file[info_file$batch=='B' & info_file$clonality == 'clonal',]
@@ -587,7 +589,6 @@ b_list
 batch_B$SNPs_clonal <- b_list
 batch_B
 points(batch_B$Dose,batch_B$SNPs_clonal,col='brown')
-
 par(mfrow=c(1,1))
 
 t.test(batch_A$SNPs_clonal,batch_B$SNPs_clonal)
@@ -622,3 +623,48 @@ wilcox.test(dbs_control,dbs_ir)
 
 dbs_control = c(5, 7, 18, 2)
 dbs_ir = c(5, 12, 7, 18, 15, 15, 12, 4, 17, 15, 11, 4, 18, 5, 9, 9, 7, 6)
+
+
+####adjusted SNP ploting#####
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/31_5_SNP_191010/mouse")
+info_file = read.table("00_9_mouse_human_191010.txt",header=T)
+info_file[1:5,1:5]
+batch_A <- info_file[info_file$batch=='A' & info_file$clonality == 'clonal',]
+batch_A
+file_list <- c()
+for (i in batch_A[,1]){
+  temp<-read.table(file = paste0(i,".true.clonal.vcf"),header=T)
+  file_list <- c(file_list,nrow(temp))
+}
+file_list
+batch_A$SNPs_clonal <- file_list
+nrow(batch_A)
+batch_A<-batch_A[-2,]
+batch_A
+plot(batch_A$Dose,batch_A$SNPs_clonal,ylim=c(200,1800))
+
+batch_B <- info_file[info_file$batch=='B' & info_file$clonality == 'clonal',]
+length(batch_B[,1])
+b_list <- c()
+for (i in batch_B[,1]){
+  temp<-read.table(file = paste0(i,".true.clonal.vcf"),header=T)
+  b_list <- c(b_list,nrow(temp))
+}
+b_list
+batch_B$SNPs_clonal <- b_list
+summary(batch_A[batch_A$Dose==0,]$SNPs_clonal)
+batch_B
+summary(batch_B[batch_B$Dose==0,]$SNPs_clonal)
+batch_A$adj_snp <- batch_A$SNPs_clonal - 773
+batch_B$adj_snp <- batch_B$SNPs_clonal - 911.5
+panc_clonal_snp <- rbind(batch_A,batch_B)
+length(panc_clonal_snp$ID)
+plot(panc_clonal_snp$Dose,panc_clonal_snp$adj_snp)
+
+boxplot(panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==0],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==1],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==2],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==3],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "The number of adjusted indels",xlab=c("Radiation Dose (Gy)"),main = 'The number of adjusted indels vs doses')
+stripchart(list(panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==0],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==1],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==2],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==3],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==4]), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+panc_clonal_snp$Dose2 <- panc_clonal_snp$Dose+1
+abline(lm(panc_clonal_snp$adj_snp ~ (panc_clonal_snp$Dose2)))
+fit <- lm(panc_clonal_snp$adj_snp ~ (panc_clonal_snp$Dose))
+summary(fit)

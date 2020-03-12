@@ -25,12 +25,13 @@ for(input_fn in file_info$filename){
     n <- n+1
   }
 }
-dim(exp_table)
-exp_table
+#dim(exp_table)
+#exp_table
 
 # match mouse gene_ID to human gene
 biomart <- read.table("~/06_mm10_SNUH_radiation/21_RSEM/mart_export.txt",sep='\t',header = T)
-biomart[,c(3,4)]
+#biomart[,c(3,4)]
+biomart[biomart$Gene.name=='ACTB',]
 mousetohuman_biomart <- biomart[,c(3,2)]
 colnames(mousetohuman_biomart)<-c("gene_id","Gene_name")
 mousetohuman_biomart
@@ -38,10 +39,7 @@ exp_table2 <- exp_table %>% left_join(mousetohuman_biomart, by = c("gene_id"="ge
 exp_table3 <- na.omit(exp_table2)
 exp_table4 <- unique(exp_table3)
 exp_table5 <- exp_table4[,-1] %>% group_by(Gene_name) %>% summarise_all(list(sum)) # sum same "Gene_name"
-exp_table5[exp_table5$Gene_name == "HIST2H3A",][,10:16]
-biomart
-dim(exp_table5)
-#log transformation for comparison of variances
+#table(rowSums(exp_table5[,-1])>150)
 exp_table6 <- exp_table5 %>% mutate_at(vars(-Gene_name),list(~log10(.+1)))
 #select protein-coding gene only
 bm_gt <- read.table("/home/users/jhyouk/99_reference/biomart/biomart_human_geneID_transcriptID_hgncsymbol_genetype_ensemblgenename_190522.txt",header=T,sep='\t') %>% as_tibble() %>% dplyr::select('Gene.name','Gene.type') %>% unique()
@@ -49,31 +47,27 @@ colnames(bm_gt) <- c("Gene_name","Gene_type")
 exp_table7 <- exp_table6 %>% left_join(bm_gt, by = c("Gene_name"="Gene_name")) %>% filter(Gene_type == 'protein_coding')
 # variance top 2500 gene choose
 exp_table8 <- exp_table7 %>% as.data.frame() %>% column_to_rownames("Gene_name") %>% dplyr::select(-Gene_type)
-temp <- apply(exp_table8,1,function(x) sd(x))
-temp
-temp2 <- apply(exp_table8,1,function(x) mean(x))
-temp[3] / temp2[3]
-exp_table8[1:4,]
 
-exp_table8$var <- apply(exp_table8,1,function(x){sd(x)/mean(x)})
-exp_table8$var[exp_table8$var == 'NaN'] <- 0
-exp_table8$var 
-exp_table8 <- exp_table8 %>% rownames_to_column("Gene_name")
+keep<-rowSums(exp_table8)>15
+exp_table9<-exp_table8[keep,]
 
-var_genes <- exp_table8 %>% arrange(desc(var)) %>% .$Gene_name %>% .[1:2500]
-var_genes
-exp_table8 %>% arrange(desc(var))
-exp_table5[exp_table5$Gene_name %in% var_genes,]
+exp_table9$var <- apply(exp_table9,1,function(x){sd(x)/mean(x)})
+#exp_table9$var[exp_table9$var == 'NaN'] <- 0
+#exp_table9[1:10,]
+exp_table9 <- exp_table9 %>% rownames_to_column("Gene_name")
 
+var_genes <- exp_table9 %>% arrange(desc(var)) %>% .$Gene_name %>% .[1:2500]
+#var_genes
+#exp_table9 %>% arrange(desc(var))
 
-write.table(var_genes,file="var_genes_sdbymean.txt",sep='\t',row.names = F)
+#write.table(var_genes,file="var_genes_sdbymean.txt",sep='\t',row.names = F)
 #colnames(var_genes)
-which(var_genes=='P53')
+#which(var_genes=='ATM')
 
-log_tpm <- exp_table8 %>% dplyr::filter(Gene_name %in% var_genes) %>% dplyr::select(-var) %>% column_to_rownames('Gene_name') %>% as.matrix()
-log_tpm[1:5,1:5]
+log_tpm <- exp_table9 %>% dplyr::filter(Gene_name %in% var_genes) %>% dplyr::select(-var) %>% column_to_rownames('Gene_name') %>% as.matrix()
+#log_tpm[1:5,1:5]
 #scale() based on each row
-?scale
+#?scale
 scaled_exp <- t(log_tpm) %>% scale() %>% t()
 exp_meta  <- read.table("radation_RNA_file_list.txt",header=T,sep='\t')
 exp_meta2 <- exp_meta %>% dplyr::select(filename,time) %>% column_to_rownames("filename")
@@ -85,14 +79,14 @@ colnames(scaled_exp) <- colnames(scaled_exp) %>% strsplit("_rsem") %>% lapply(fu
 rownames(exp_meta2) <- rownames(exp_meta2) %>% strsplit("_rsem") %>% lapply(function(x) x[1]) %>% unlist
 
 
-write.table(scaled_exp,file = "scaled_exp.txt",sep='\t')
+#write.table(scaled_exp,file = "scaled_exp.txt",sep='\t')
 #all_list <- list("P53_PATHWAY"=c("TP53","BAX","CDK1","MDM2","CCNE2"),
 #                 "APOPTOSIS" = c("JUN","BAX","CDKN1A","FAS","BRCA1","CCND2","CDK2"),
 #                 "DSB_REPAIR"=c("BRCA1","MRE11","RAD51","CDK2","BRCA2","POLQ","CHEK1","POLE","BLM","ATM")
 #                 )
 
 #By Enrichr,KEGG2019 Human, Reactome 2016, Bioplanet 2019
-biomart[biomart$Gene.name=='HIF3A',]
+#biomart[biomart$Gene.name=='HIF3A',]
 all_list <- list("P53_pathway"=c("Trp53","Bax","Cdkn1a","Fas"),
                  "Cell_cycle" = c("Mdm2","Cdk1","Cdk2","Ccne1","Ccne2","Ccna2","Ccnb1"),
                  "DNA_replication" = c("Pole","Pcna","Rpa1","Rpa2"),
@@ -107,7 +101,7 @@ column_anno <- HeatmapAnnotation("Time" = exp_meta2$time,
                                                                               at = c('0','0.5','2','6','24'),
                                                                               labels = c('0hr','0.5hr','2hr','6hr','24hr')))
 )
-length(selected_names)
+#length(selected_names)
 #myninecolor=RColorBrewer::brewer.pal(9,"Set1")[c(1,5,2,4,3,6)]
 myninecolor=c("#FF7F00",
               "#4DAF4A",
@@ -122,7 +116,7 @@ for(i in 1:length(selected_names)){
 }
 table(all_color)
 
-ha = rowAnnotation(foo = anno_mark(at = which(all_color != "black"),
+#ha = rowAnnotation(foo = anno_mark(at = which(all_color != "black"),
                                    labels = all_names[all_color != "black"], 
                                    lines_gp = gpar(col=all_color[which(all_color != "black")]),
                                    labels_gp = gpar(col=all_color[which(all_color != "black")],cex=1)))
@@ -155,11 +149,11 @@ h1<-Heatmap(scaled_exp,
         row_title_gp = gpar(col="#00000000"),
         row_gap = unit(0.5, "mm"),
         #column_order =c(1,2,10,3,12,11,4,6,5,7,9,8,13,14,15)
-        #column_order =c(1,2,3,10,12,11,7,8,9,15,14,13,4,6,5),
-        col= exp_pal,
-        row_order = get_order(o1p),
+        column_order =c(1,2,3,10,12,11,7,8,9,15,14,13,4,6,5),
+        col= exp_pal
+        #row_order = get_order(o1p),
         #cluster_columns = as.dendrogram(o2pgw[[1]]),
-        cluster_rows = as.dendrogram(o1pgw)
+        #cluster_rows = as.dendrogram(o1pgw)
         )
 h1
 
@@ -283,54 +277,65 @@ dev.off()
 
 
 
-#######Heatmap using DESeq2 value
+#######pheatmap using DESeq2 value
 library(pheatmap)
 select <- order(rowMeans(counts(dds,normalized=TRUE)),
                 decreasing=TRUE)[1:2500]
 df <- as.data.frame(colData(dds)[,"condition"])
-counts(dds)
 rownames(df) <- colnames(dds)
 pheatmap::pheatmap(assay(vsd)[select,], cluster_rows=T, show_rownames=FALSE,
          cluster_cols=T, annotation_col=df)
-?pheatmap
-assay(vsd)[select,]
-a
-BiocManager::install("vsn")
+
+vsd
+
+library(vsn)
 library(hexbin)
-install.packages("hexbin")
 meanSdPlot(assay(vsd))
 
-target_list <- assay(vsd)
-target_list
-idtoname <- biomart[,c(3,4)]
 
+#######Complex Heatmap using DESeq2 value######
+library(DESeq2)
+library(tximport)
+library(tidyverse)
+library(NMF)
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/21_RSEM/RSEM_output")
+#baseinfo for vst of expression using DESeq2 package
+file_info <- read.table("radation_RNA_file_list.txt",header=T,sep='\t')
+samples <- matrix(file_info$ID,ncol = 1)
+samples <- samples %>% as.data.frame()
+samples$condition <- c("pre","pre","pre","24h","24h","24h","2h","2h","2h","30m","30m","30m","6hr","6hr","6hr")
+files <- file.path(paste(samples$V1,"_rsem.genes.results",sep=""))
+names(files) <- samples$V1
+txi <- tximport(files,type = 'rsem',txIn=FALSE,txOut = FALSE)
+txi$length[txi$length == 0] <- 1 
+samples <- samples %>% as.data.frame() %>% column_to_rownames('V1')
+dds <- DESeqDataSetFromTximport(txi, colData = samples, design =  ~condition)
+keep <- rowSums(counts(dds)) >= 10 # for saving memory
+dds <- dds[keep,] 
+dds$condition <- relevel(dds$condition, ref = "pre")
+dds <- DESeq(dds)
+vsd <- vst(dds, blind=FALSE)
+
+
+target_list <- assay(vsd)
+biomart <- read.table("~/06_mm10_SNUH_radiation/21_RSEM/mart_export.txt",sep='\t',header = T)
+idtoname <- biomart[,c(3,4)]
 colnames(idtoname)<-c("gene_id","Gene_name")
 temp_target <- target_list %>% as.data.frame() %>% rownames_to_column(var = "gene_id")
-exp_table[1:3,1:3]
-
 target_list2 <- temp_target %>% left_join(idtoname, by = c("gene_id"="gene_id"))
 target_list3 <- target_list2 %>% na.omit() %>% unique
-
-target_list3
 target_list5 <- target_list3[,-1] %>% group_by(Gene_name) %>% summarise_all(list(sum)) # sum same "Gene_name"
-
-
 #select protein-coding gene only of mouse
 bm_gt <- read.table("/home/users/jhyouk/99_reference/biomart/mouse_geneID_geneName_Gene_type.txt",header=T,sep=',') %>% as_tibble() %>% dplyr::select('Gene.name','Gene.type') %>% unique()
-
 colnames(bm_gt) <- c("Gene_name","Gene_type")
 target_list6 <- target_list5 %>% left_join(bm_gt, by = c("Gene_name"="Gene_name")) %>% filter(Gene_type == 'protein_coding')
 # variance top 2500 gene choose
 target_list8 <- target_list6 %>% as.data.frame() %>% column_to_rownames("Gene_name") %>% dplyr::select(-Gene_type)
+target_list8$var <- apply(target_list8,1,function(x){sd(x)/mean(x)})
 
-target_list8$var <- apply(target_list8,1,function(x) var(x))
-#target_list8$var[target_list8$var == 'NaN'] <- 0
-target_list8$var 
 target_list8 <- target_list8 %>% rownames_to_column("Gene_name")
 var_genes <- target_list8 %>% arrange(desc(var)) %>% .$Gene_name %>% .[1:2500]
 log_tpm <- target_list8 %>% dplyr::filter(Gene_name %in% var_genes) %>% dplyr::select(-var) %>% column_to_rownames('Gene_name') %>% as.matrix()
-log_tpm
-
 scaled_exp <- t(log_tpm) %>% scale() %>% t()
 exp_meta  <- read.table("radation_RNA_file_list.txt",header=T,sep='\t')
 exp_meta2 <- exp_meta %>% dplyr::select(filename,time) %>% column_to_rownames("filename")
@@ -341,29 +346,26 @@ names(group_color) = c('0','24','2','0.5','6')
 colnames(scaled_exp) <- colnames(scaled_exp) %>% strsplit("_rsem") %>% lapply(function(x) x[1]) %>% unlist
 rownames(exp_meta2) <- rownames(exp_meta2) %>% strsplit("_rsem") %>% lapply(function(x) x[1]) %>% unlist
 
-#biomart[biomart$Gene.name=='HIF3A',]
-all_list <- list("P53_pathway"=c("Trp53","Mdm2","Bax","Cdkn1a","Fas"),
-                 "Cell_cycle" = c("Cdk1","Cdk2","Ccne1","Ccne2","Ccna2","Ccnb1"),
+all_list <- list("P53_pathway"=c("Mdm2","Bax","Fas"),
+                 "Cell_cycle" = c("Cdkn1a","Cdk1","Ccne1","Ccne2","Ccna2","Ccnb1"),
                  "DNA_replication" = c("Pole","Pcna","Rpa1","Rpa2"),
-                 "DSB_Repair"=c("Brca1","Mre11a","Rad51","Brca2","Brip1","Blm","Atm"),
+                 "DSB_Repair"=c("Brca1","Mre11a","Rad51","Brca2","Brip1","Blm"),
+                 "Circadian_rhythm"=c("Per1","Per3","Cry2"),
                  "Hypoxia-related"=c("Vegfa","Serpine1","Edn1")
 )
 selected_names <- names(all_list)
-
 column_anno <- HeatmapAnnotation("Time" = exp_meta2$time,
                                  col = list("Time" = group_color),
                                  annotation_legend_param = list("Time" = list(title = "Time after irradiation",
                                                                               at = c('0','0.5','2','6','24'),
                                                                               labels = c('0hr','0.5hr','2hr','6hr','24hr')))
 )
-#length(selected_names)
-#myninecolor=RColorBrewer::brewer.pal(9,"Set1")[c(1,5,2,4,3,6)]
 myninecolor=c("#FF7F00",
               "#4DAF4A",
               "#984EA3",
               "#377EB8",
+              "Gray50",
               "Gray70")
-#plot(c(1,2,3,4,5),c(1,2,3,4,5),col=myninecolor)
 all_names = rownames(scaled_exp)
 all_color=rep("black",length(all_names))
 for(i in 1:length(selected_names)){
@@ -375,25 +377,16 @@ ha = rowAnnotation(foo = anno_mark(at = which(all_color != "black"),
                                    labels = all_names[all_color != "black"], 
                                    lines_gp = gpar(col=all_color[which(all_color != "black")]),
                                    labels_gp = gpar(col=all_color[which(all_color != "black")],cex=1)))
-#scaled_exp[1:5,1:5]
-#get_order(o1p)
 o1p = seriate(as.dist(1-cor(t(scaled_exp))), method = "TSP") # about genes
 o1pgw = hclust(as.dist(1-cor(t(scaled_exp)))) # about genes
 o2pgw = seriate(as.dist(1-cor(scaled_exp)), method = "GW")
-#exp_pal = colorRamp2(c(-3,0,3), c('#253494',"gray90",'#f03b20'))
-o1pgw %>% cutree(k = 4) %>% {.[.==1]} %>% names %>% cat(sep="\n") # Group 3 -> p53 signaling pathway
-o1pgw %>% cutree(k = 4) %>% {.[.==2]} %>% names %>% cat(sep="\n") # Group 4 -> unspecified pathway
-o1pgw %>% cutree(k = 4) %>% {.[.==4]} %>% names %>% cat(sep="\n") # Group 1 -> Hypoxia pathway
-o1pgw %>% cutree(k = 4) %>% {.[.==3]} %>% names %>% cat(.[1:103],sep="\n")# Group 2 -> Cell cycle, DNA repair pathway
-o1pgw %>% cutree(k = 4) %>% table(.)
 
 #colorRamp2
 exp_pal = circlize::colorRamp2(c(-3,0,3), c('#253494',"gray90",'#f03b20'))
 
-o1pgw %>% cutree(k = 3) %>% {.[.==1]} %>% names %>% cat(sep="\n") # Group 3 -> p53 signaling pathway
-o1pgw %>% cutree(k = 3) %>% {.[.==2]} %>% names %>% cat(sep="\n") # Group 4 -> unspecified pathway
-o1pgw %>% cutree(k = 3) %>% {.[.==3]} %>% names %>% cat(sep="\n") # Group 1 -> Hypoxia pathway
-o1pgw %>% cutree(k = 3) %>% table(.)
+o1pgw %>% cutree(k = 2) %>% {.[.==1]} %>% names %>% cat(sep="\n") # Group 1 -> upregulated pathway
+o1pgw %>% cutree(k = 2) %>% {.[.==2]} %>% names %>% cat(sep="\n") # Group 2 -> downregulated pathway
+o1pgw %>% cutree(k = 2) %>% table(.)
 
 h2<-Heatmap(scaled_exp,
         width = unit(8,"cm"),height = unit(11,"cm"),
@@ -404,7 +397,7 @@ h2<-Heatmap(scaled_exp,
         right_annotation = ha,
         column_order =c(1,2,3,10,12,11,7,8,9,15,14,13,4,6,5),
         row_order = get_order(o1p),
-        cluster_rows = rev(as.dendrogram(o1pgw)),
+        cluster_rows = as.dendrogram(o1pgw),
         col= exp_pal,
         row_title_gp = gpar(col="#00000000"),
         row_gap = unit(0.5, "mm"),
@@ -418,9 +411,9 @@ lgd = Legend(labels = selected_names, title = "Gene ontology", legend_gp = gpar(
              type = "lines")
 lgd2 = Legend(col_fun = exp_pal, title = "Normalized gene expression")
 lgd12=packLegend(lgd,lgd2)
-draw(lgd12)
+#draw(lgd12)
 
-pdf("heatmap_200226.pdf")
+pdf("heatmap_200227_coef_var.pdf")
 draw(h2, annotation_legend_list = lgd12)
 dev.off()
 

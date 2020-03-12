@@ -388,18 +388,20 @@ input_file$adjusted_N[input_file$Batch=='A'] <- input_file$N[input_file$Batch=='
 input_file$adjusted_N[input_file$Batch=='B'] <- input_file$N[input_file$Batch=='B'] - 16.5
 
 plot(input_file$adjusted_N ~ input_file$Dose)
-abline(lm(input_file$adjusted_N ~ input_file$Dose))
-fit <- lm(input_file$adjusted_N ~ input_file$Dose)
+input_file$Dose2 <- input_file$Dose+1
+abline(lm(input_file$adjusted_N ~ (input_file$Dose)))
+abline(lm(input_file$adjusted_N ~ (input_file$Dose2)))
+fit <- lm(input_file$adjusted_N ~ (input_file$Dose))
+input_file$Dose+1
 summary(fit)
 print(summary(lm(input_file$adjusted_N ~ input_file$Dose)))
 confint(fit,input_file$Dose,level=0.95)
 plot(input_file$Dose,fit$residuals)
 abline(h=0)
 fit$coefficientsd
-
+par(mfrow=c(2,1))
 pdf("adjusted_indels_vsDoses.pdf")
 boxplot(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "The number of adjusted indels",xlab=c("Radiation Dose (Gy)"),main = 'The number of adjusted indels vs doses',ylim=c(-10,80))
-#abline(lm(input_file$adjusted_N ~ input_file$Dose))
 stripchart(list(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4]), vertical = TRUE, 
            method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
 dev.off()
@@ -516,3 +518,66 @@ lm(sv_indel$dsb~sv_indel$Dose.x)
 confint(lm(sv_indel$dsb~sv_indel$Dose.x),sv_indel$Dose.x,level=0.95)
 
 13.685-10.1577
+
+
+
+
+## use strict indel for indel number plotting
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010")
+input_file <- read.table("strict_indels_nonrepeat.txt",header=F)
+colnames(input_file) <- c("ID","Dose","Batch","N")
+input_file <- input_file[input_file$Dose != 8,]
+plot(input_file$Dose,input_file$N)
+plot(input_file$Dose[input_file$Batch=='A'],input_file$N[input_file$Batch=='A'])
+plot(input_file$Dose[input_file$Batch=='B'],input_file$N[input_file$Batch=='B'])
+summary(input_file$N[input_file$Batch=='A' & input_file$Dose==0])
+summary(input_file$N[input_file$Batch=='B'& input_file$Dose==0])
+
+plot(input_file$Dose[input_file$Batch=='A'],input_file$N[input_file$Batch=='A'] - 12)
+plot(input_file$Dose[input_file$Batch=='B'],input_file$N[input_file$Batch=='B'] -15)
+
+input_file$adjusted_N[input_file$Batch=='A'] <- input_file$N[input_file$Batch=='A'] - 12
+input_file$adjusted_N[input_file$Batch=='B'] <- input_file$N[input_file$Batch=='B'] - 15
+
+plot(input_file$adjusted_N ~ input_file$Dose)
+input_file$ID
+input_file$Dose2 <- input_file$Dose+1
+abline(lm(input_file$adjusted_N ~ (input_file$Dose)))
+abline(lm(input_file$adjusted_N ~ (input_file$Dose2)))
+fit <- lm(input_file$adjusted_N ~ (input_file$Dose))
+input_file$Dose+1
+summary(fit)
+print(summary(lm(input_file$adjusted_N ~ input_file$Dose)))
+confint(fit,input_file$Dose,level=0.95)
+plot(input_file$Dose,fit$residuals)
+abline(h=0)
+fit$coefficientsd
+par(mfrow=c(2,1))
+pdf("adjusted_indels_vsDoses.pdf")
+boxplot(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "The number of adjusted indels",xlab=c("Radiation Dose (Gy)"),main = 'The number of adjusted indels vs doses',ylim=c(-10,80))
+stripchart(list(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4]), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+dev.off()
+
+
+###200306 initial Fig.1D adjusted SNP, nonrepetitive adjusted indel ####
+setwd("/home/users/jhyouk/06_mm10_SNUH_radiation/32_5_INDEL_191010")
+pdf("Fig1d_snp_nrindels_plot.pdf")
+par(mfrow=c(2,1))
+#snp
+boxplot(panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==0],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==1],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==2],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==3],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "Normalized SBSs",xlab=c("Radiation Dose (Gy)"))
+stripchart(list(panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==0],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==1],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==2],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==3],panc_clonal_snp$adj_snp[panc_clonal_snp$Dose==4]), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+#panc_clonal_snp$Dose2 <- panc_clonal_snp$Dose+1
+abline(lm(panc_clonal_snp$adj_snp ~ (panc_clonal_snp$Dose2)),col=alpha("black",0.5),lty=2)
+fit_snp <- lm(panc_clonal_snp$adj_snp ~ (panc_clonal_snp$Dose))
+summary(fit_snp)
+#nonrepetitive indels
+boxplot(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4],boxwex=0.3,names = c("0","1","2","3","4"),ylab= "Normalized nonrepetitive indels",xlab=c("Radiation Dose (Gy)"),ylim=c(-10,80))
+stripchart(list(input_file$adjusted_N[input_file$Dose==0],input_file$adjusted_N[input_file$Dose==1],input_file$adjusted_N[input_file$Dose==2],input_file$adjusted_N[input_file$Dose==3],input_file$adjusted_N[input_file$Dose==4]), vertical = TRUE, 
+           method = "jitter", add = TRUE, pch = 20, col = alpha('black',0.2))
+abline(lm(input_file$adjusted_N ~ (input_file$Dose2)),col=alpha("black",0.5),lty=2)
+fit_indel <- lm(input_file$adjusted_N ~ (input_file$Dose))
+summary(fit_indel)
+dev.off()
+
